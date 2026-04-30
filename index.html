@@ -1,0 +1,3196 @@
+<!DOCTYPE html>
+<html lang="ca">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<title>HIGIENEX S.L. – Higiene Professional Sostenible</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@300;400;500;600&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --green-deep: #0B3D6B;
+  --green-mid: #1565A8;
+  --green-bright: #2196D3;
+  --green-light: #64B5E8;
+  --green-pale: #B3D9F5;
+  --green-cream: #DEEEFB;
+  --accent: #F2A900;
+  --accent-soft: #FFF3CD;
+  --charcoal: #1A1A1A;
+  --warm-white: #F5FAFF;
+  --border: rgba(21,101,168,0.15);
+  --shadow: 0 4px 32px rgba(11,61,107,0.10);
+  --shadow-lg: 0 16px 64px rgba(11,61,107,0.18);
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: 'DM Sans', sans-serif;
+  background: var(--warm-white);
+  color: var(--charcoal);
+  line-height: 1.7;
+  overflow-x: hidden;
+}
+
+/* ── NAV ── */
+nav {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  z-index: 9999;
+  background: rgba(250,250,247,0.95);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--border);
+  transition: box-shadow .3s;
+}
+nav.scrolled { box-shadow: var(--shadow); }
+
+.nav-inner {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 64px;
+}
+
+.logo {
+  font-family: 'DM Serif Display', serif;
+  font-size: 1.5rem;
+  color: var(--green-deep);
+  text-decoration: none;
+  letter-spacing: -0.5px;
+}
+.logo span { color: var(--green-bright); }
+
+.nav-links {
+  display: flex;
+  gap: 0.1rem;
+  list-style: none;
+  flex-wrap: wrap;
+}
+.nav-links a {
+  font-size: 0.72rem;
+  font-weight: 500;
+  color: var(--charcoal);
+  text-decoration: none;
+  padding: 0.35rem 0.5rem;
+  border-radius: 4px;
+  transition: all .2s;
+  white-space: nowrap;
+}
+.nav-links a:hover { background: var(--green-cream); color: var(--green-deep); }
+
+.nav-cta {
+  background: var(--green-deep) !important;
+  color: var(--warm-white) !important;
+  padding: 0.45rem 1rem !important;
+  border-radius: 6px !important;
+}
+.nav-cta:hover { background: var(--green-mid) !important; }
+
+.hamburger {
+  display: none;
+  flex-direction: column;
+  cursor: pointer;
+  gap: 5px;
+}
+.hamburger span {
+  display: block;
+  width: 24px; height: 2px;
+  background: var(--green-deep);
+  transition: .3s;
+}
+
+/* ── TOUCH GLOBAL ── */
+button, a {
+  touch-action: manipulation;
+  -webkit-tap-highlight-color: transparent;
+}
+
+/* ── IMAGE MOBILE FIX ── */
+img {
+  display: block;
+  max-width: 100%;
+  background-color: #DEEEFB; /* placeholder color mientras carga */
+}
+
+/* ── SECTIONS BASE ── */
+section { padding: 4rem 2rem; }
+.container { max-width: 1200px; margin: 0 auto; }
+.section-tag {
+  display: inline-block;
+  font-family: 'Space Mono', monospace;
+  font-size: 0.6rem;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--green-bright);
+  background: var(--green-cream);
+  padding: 0.25rem 0.7rem;
+  border-radius: 20px;
+  margin-bottom: 0.7rem;
+}
+h1, h2, h3 { font-family: 'DM Serif Display', serif; line-height: 1.2; }
+h2 { font-size: 2rem; color: var(--green-deep); margin-bottom: 0.6rem; }
+h3 { font-size: 1.15rem; color: var(--green-mid); margin-bottom: 0.4rem; }
+
+/* Section intro text — keep it short and light */
+section > .container > p,
+section > .container > div > p:first-of-type {
+  font-size: 0.92rem;
+  color: #666;
+  max-width: 600px;
+  margin-bottom: 1.8rem;
+  line-height: 1.7;
+}
+
+/* ── 1. HERO ── */
+#home {
+  min-height: 100vh;
+  background: linear-gradient(135deg, var(--green-deep) 0%, var(--green-mid) 55%, var(--green-bright) 100%);
+
+  display: flex;
+  align-items: center;
+  position: relative;
+  overflow: hidden;
+  padding-top: 64px;
+}
+
+.hero-bg-pattern {
+  position: absolute;
+  inset: 0;
+  background-image: radial-gradient(circle at 20% 50%, rgba(100,181,232,0.15) 0%, transparent 50%),
+                    radial-gradient(circle at 80% 20%, rgba(255,255,255,0.05) 0%, transparent 40%),
+                    radial-gradient(circle at 70% 80%, rgba(11,61,107,0.3) 0%, transparent 50%);
+}
+
+.hero-grid-lines {
+  position: absolute;
+  inset: 0;
+  background-image: 
+    linear-gradient(rgba(255,255,255,0.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,0.04) 1px, transparent 1px);
+  background-size: 60px 60px;
+}
+
+.hero-content {
+  position: relative;
+  z-index: 2;
+  max-width: 1200px;
+  margin: 0 auto;
+  width: 100%;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4rem;
+  align-items: center;
+}
+
+.hero-left { color: white; }
+.hero-eyebrow {
+  font-family: 'Space Mono', monospace;
+  font-size: 0.7rem;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: var(--green-pale);
+  margin-bottom: 1.5rem;
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+}
+.hero-eyebrow::before {
+  content: '';
+  display: block;
+  width: 32px; height: 1px;
+  background: var(--green-light);
+}
+
+.hero-title {
+  font-size: clamp(3rem, 6vw, 5.5rem);
+  font-weight: 400;
+  color: white;
+  margin-bottom: 0.5rem;
+  letter-spacing: -2px;
+}
+.hero-title .highlight { color: var(--green-pale); font-style: italic; }
+
+.hero-slogan {
+  font-size: 1.1rem;
+  color: var(--green-pale);
+  margin-bottom: 1.5rem;
+  font-weight: 300;
+  letter-spacing: 0.5px;
+}
+
+.hero-desc {
+  font-size: 0.95rem;
+  color: rgba(255,255,255,0.75);
+  margin-bottom: 2.5rem;
+  line-height: 1.8;
+}
+
+.hero-btns { display: flex; gap: 1rem; flex-wrap: wrap; }
+
+.btn-primary {
+  background: var(--accent);
+  color: var(--charcoal);
+  padding: 0.9rem 2rem;
+  border-radius: 6px;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 0.9rem;
+  transition: all .25s;
+  letter-spacing: 0.3px;
+}
+.btn-primary:hover { background: #e09900; transform: translateY(-2px); box-shadow: 0 8px 24px rgba(242,169,0,0.35); }
+
+.btn-outline {
+  border: 1.5px solid rgba(255,255,255,0.4);
+  color: white;
+  padding: 0.9rem 2rem;
+  border-radius: 6px;
+  text-decoration: none;
+  font-weight: 500;
+  font-size: 0.9rem;
+  transition: all .25s;
+}
+.btn-outline:hover { border-color: white; background: rgba(255,255,255,0.08); }
+
+.hero-right { position: relative; }
+
+.hero-img-wrap {
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: var(--shadow-lg);
+  aspect-ratio: 4/3;
+  position: relative;
+}
+.hero-img-wrap img {
+  width: 100%; height: 100%;
+  object-fit: cover;
+}
+.hero-img-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba(11,61,107,0.4), transparent 60%);
+}
+
+.hero-stats {
+  position: absolute;
+  bottom: -1.5rem;
+  left: -1.5rem;
+  display: flex;
+  gap: 0.8rem;
+}
+
+.stat-card {
+  background: white;
+  border-radius: 10px;
+  padding: 1rem 1.2rem;
+  box-shadow: var(--shadow);
+  text-align: center;
+  animation: float 4s ease-in-out infinite;
+}
+.stat-card:nth-child(2) { animation-delay: 1.5s; }
+
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-6px); }
+}
+
+.stat-num {
+  font-family: 'DM Serif Display', serif;
+  font-size: 1.6rem;
+  color: var(--green-deep);
+  display: block;
+}
+.stat-lbl {
+  font-size: 0.65rem;
+  color: #666;
+  font-weight: 500;
+  letter-spacing: 0.5px;
+}
+
+/* ── SCROLL INDICATOR ── */
+.scroll-down {
+  position: absolute;
+  bottom: 2rem;
+  left: 50%;
+  transform: translateX(-50%);
+  color: rgba(255,255,255,0.5);
+  font-size: 0.7rem;
+  letter-spacing: 2px;
+  text-align: center;
+  font-family: 'Space Mono', monospace;
+  animation: bounce 2s ease-in-out infinite;
+}
+.scroll-down::after {
+  content: '';
+  display: block;
+  width: 1px;
+  height: 40px;
+  background: rgba(255,255,255,0.3);
+  margin: 0.5rem auto 0;
+}
+@keyframes bounce {
+  0%, 100% { transform: translateX(-50%) translateY(0); }
+  50% { transform: translateX(-50%) translateY(-8px); }
+}
+
+/* ── 2. SOBRE L'EMPRESA ── */
+#sobre { background: white; }
+.sobre-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 5rem;
+  align-items: center;
+}
+.sobre-img {
+  border-radius: 12px;
+  overflow: hidden;
+  aspect-ratio: 4/3;
+  box-shadow: var(--shadow-lg);
+  position: relative;
+}
+.sobre-img img { width: 100%; height: 100%; object-fit: cover; }
+.sobre-img::before {
+  content: '';
+  position: absolute;
+  top: -12px; left: -12px;
+  width: 80px; height: 80px;
+  background: var(--green-cream);
+  border-radius: 8px;
+  z-index: -1;
+}
+
+.timeline {
+  margin-top: 2rem;
+  position: relative;
+}
+.timeline::before {
+  content: '';
+  position: absolute;
+  left: 14px;
+  top: 0; bottom: 0;
+  width: 1px;
+  background: var(--green-pale);
+}
+.tl-item {
+  display: flex;
+  gap: 1.5rem;
+  margin-bottom: 1.5rem;
+  position: relative;
+}
+.tl-dot {
+  width: 28px; height: 28px;
+  background: var(--green-bright);
+  border-radius: 50%;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-size: 0.65rem;
+  font-weight: 700;
+  font-family: 'Space Mono', monospace;
+  z-index: 1;
+}
+.tl-content { font-size: 0.9rem; padding-top: 4px; }
+.tl-year { font-weight: 700; color: var(--green-deep); }
+
+/* ── 3. MISSIÓ ── */
+#missio {
+  background: linear-gradient(135deg, var(--green-deep), var(--green-mid));
+  color: white;
+}
+.mvv-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 2rem;
+  margin-top: 2rem;
+}
+.mvv-card {
+  background: rgba(255,255,255,0.08);
+  border: 1px solid rgba(255,255,255,0.12);
+  border-radius: 12px;
+  padding: 1.4rem;
+  backdrop-filter: blur(4px);
+  transition: transform .3s, background .3s;
+}
+.mvv-card:hover { transform: translateY(-4px); background: rgba(255,255,255,0.12); }
+.mvv-icon {
+  width: 44px; height: 44px;
+  background: var(--green-light);
+  border-radius: 10px;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 1.3rem;
+  margin-bottom: 1rem;
+}
+.mvv-card h3 { color: var(--green-pale); font-size: 0.75rem; letter-spacing: 2px; text-transform: uppercase; font-family: 'Space Mono', monospace; margin-bottom: 0.8rem; }
+.mvv-card p { color: rgba(255,255,255,0.8); font-size: 0.9rem; }
+
+.valors-list {
+  grid-column: 1 / -1;
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 1rem;
+  margin-top: 0;
+}
+.valor-item {
+  background: rgba(255,255,255,0.06);
+  border: 1px solid rgba(255,255,255,0.1);
+  border-radius: 8px;
+  padding: 1.2rem;
+  text-align: center;
+}
+.valor-item .v-icon { font-size: 1.5rem; margin-bottom: 0.5rem; display: block; }
+.valor-item strong { display: block; font-size: 0.75rem; color: var(--green-pale); margin-bottom: 0.3rem; letter-spacing: 0.5px; }
+.valor-item span { font-size: 0.75rem; color: rgba(255,255,255,0.65); }
+
+/* ── 4. PRODUCTES ── */
+#productes { background: var(--warm-white); }
+
+.products-table-wrap {
+  overflow-x: auto;
+  border-radius: 12px;
+  box-shadow: var(--shadow);
+  margin: 2rem 0;
+}
+table { width: 100%; border-collapse: collapse; background: white; }
+thead tr { background: var(--green-deep); color: white; }
+th { padding: 1rem 1.5rem; text-align: left; font-size: 0.75rem; letter-spacing: 1px; text-transform: uppercase; font-family: 'Space Mono', monospace; font-weight: 400; }
+td { padding: 1rem 1.5rem; border-bottom: 1px solid var(--green-cream); font-size: 0.9rem; vertical-align: middle; }
+tbody tr:last-child td { border-bottom: none; }
+tbody tr:hover td { background: var(--green-cream); }
+.badge {
+  display: inline-block;
+  padding: 0.2rem 0.7rem;
+  border-radius: 20px;
+  font-size: 0.7rem;
+  font-weight: 600;
+}
+.badge-eco { background: var(--green-cream); color: var(--green-deep); }
+.badge-hosp { background: #E3F2FD; color: #1565C0; }
+.badge-ind { background: #FFF8E1; color: #F57F17; }
+
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.2rem;
+  margin-top: 2rem;
+}
+.gallery-item {
+  border-radius: 10px;
+  overflow: hidden;
+  aspect-ratio: 1;
+  box-shadow: var(--shadow);
+  transition: transform .3s;
+}
+.gallery-item:hover { transform: scale(1.03); }
+.gallery-item img { width: 100%; height: 100%; object-fit: cover; }
+
+/* ── 5. DIGITALITZACIÓ ── */
+#digitalitzacio { background: white; }
+.digital-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4rem;
+  align-items: center;
+  margin-top: 2rem;
+}
+.digital-cards { display: flex; flex-direction: column; gap: 1rem; }
+.digi-card {
+  display: flex;
+  gap: 1.2rem;
+  align-items: flex-start;
+  background: var(--warm-white);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 1.2rem 1.5rem;
+  transition: box-shadow .3s;
+}
+.digi-card:hover { box-shadow: var(--shadow); }
+.digi-icon {
+  width: 42px; height: 42px;
+  background: var(--green-cream);
+  border-radius: 8px;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 1.2rem;
+  flex-shrink: 0;
+}
+.digi-card h4 { font-size: 0.9rem; font-weight: 600; color: var(--green-deep); margin-bottom: 0.2rem; }
+.digi-card p { font-size: 0.82rem; color: #666; }
+
+.digital-visual {
+  background: linear-gradient(135deg, var(--green-deep), var(--green-bright));
+  border-radius: 16px;
+  padding: 2.5rem;
+  color: white;
+  text-align: center;
+}
+.big-metric {
+  font-family: 'DM Serif Display', serif;
+  font-size: 4.5rem;
+  color: var(--green-pale);
+  line-height: 1;
+  margin-bottom: 0.5rem;
+}
+.metric-label { font-size: 0.85rem; color: rgba(255,255,255,0.75); margin-bottom: 2rem; }
+
+/* ── 6. SOSTENIBILITAT ── */
+#sostenibilitat { background: var(--green-cream); }
+.sost-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+  margin-top: 2rem;
+}
+.sost-card {
+  background: white;
+  border-radius: 12px;
+  padding: 1.5rem;
+  box-shadow: var(--shadow);
+  text-align: center;
+  transition: transform .3s;
+}
+.sost-card:hover { transform: translateY(-6px); }
+.sost-emoji { font-size: 2rem; margin-bottom: 0.7rem; display: block; }
+.sost-card h3 { font-size: 0.95rem; color: var(--green-deep); margin-bottom: 0.4rem; }
+.sost-card p { font-size: 0.8rem; color: #666; line-height: 1.5; }
+
+/* ── 7. ORGANIGRAMA ── */
+#organitzacio { background: white; }
+.org-chart {
+  margin-top: 2.5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0;
+}
+.org-box {
+  background: var(--green-deep);
+  color: white;
+  padding: 0.8rem 2rem;
+  border-radius: 8px;
+  font-weight: 600;
+  font-size: 0.85rem;
+  text-align: center;
+  cursor: pointer;
+  transition: all .3s;
+  min-width: 180px;
+}
+.org-box:hover { background: var(--green-mid); transform: scale(1.03); }
+.org-box.mid { background: var(--green-mid); }
+.org-box.leaf { background: var(--green-bright); font-weight: 400; font-size: 0.78rem; min-width: 130px; }
+.org-box.indep { background: var(--accent); color: var(--charcoal); }
+
+.org-connector {
+  width: 1px;
+  height: 24px;
+  background: var(--green-pale);
+}
+.org-level {
+  display: flex;
+  gap: 0.8rem;
+  align-items: flex-start;
+  position: relative;
+}
+.org-level::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 1px;
+  background: var(--green-pale);
+}
+.org-branch {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0;
+}
+.org-h-line {
+  height: 1px;
+  background: var(--green-pale);
+  align-self: stretch;
+  margin-top: 0;
+}
+
+/* ── 8. CLIENTS ── */
+#clients { background: var(--warm-white); }
+.clients-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.5rem;
+  margin-top: 2rem;
+}
+.client-card {
+  background: white;
+  border-radius: 10px;
+  padding: 1.8rem;
+  box-shadow: var(--shadow);
+  display: flex;
+  gap: 1.2rem;
+  align-items: flex-start;
+  transition: transform .3s;
+}
+.client-card:hover { transform: translateX(4px); }
+.client-icon {
+  width: 48px; height: 48px;
+  background: var(--green-cream);
+  border-radius: 10px;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 1.4rem;
+  flex-shrink: 0;
+}
+.client-card h3 { font-size: 1rem; margin-bottom: 0.3rem; color: var(--green-deep); }
+.client-card p { font-size: 0.85rem; color: #666; }
+
+.market-banner {
+  margin-top: 2rem;
+  background: linear-gradient(135deg, var(--green-deep), var(--green-bright));
+  border-radius: 12px;
+  padding: 2rem 2.5rem;
+  color: white;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+.market-banner h3 { color: white; font-size: 1.3rem; }
+.market-banner p { color: rgba(255,255,255,0.8); font-size: 0.9rem; }
+
+/* ── 9. INNOVACIÓ ── */
+#innovacio { background: white; }
+.innov-cols {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 3rem;
+  margin-top: 2rem;
+}
+.innov-highlight {
+  background: var(--green-cream);
+  border-left: 4px solid var(--green-bright);
+  border-radius: 0 10px 10px 0;
+  padding: 2rem;
+}
+.innov-highlight h3 { color: var(--green-deep); margin-bottom: 0.8rem; }
+.innov-highlight p { font-size: 0.9rem; color: #555; }
+.innov-stats {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+  margin-top: 1.5rem;
+}
+.innov-stat {
+  background: white;
+  border-radius: 8px;
+  padding: 1.2rem;
+  text-align: center;
+  box-shadow: var(--shadow);
+}
+.innov-num {
+  font-family: 'DM Serif Display', serif;
+  font-size: 2.2rem;
+  color: var(--green-deep);
+  display: block;
+}
+.innov-lbl { font-size: 0.72rem; color: #888; }
+
+/* ── 10. MÀRQUETING ── */
+#marqueting { background: var(--warm-white); }
+.mkt-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+  margin-top: 2rem;
+}
+.mkt-card {
+  background: white;
+  border-radius: 12px;
+  padding: 1.4rem;
+  box-shadow: var(--shadow);
+  border-top: 3px solid var(--green-bright);
+  transition: transform .3s;
+}
+.mkt-card:hover { transform: translateY(-4px); }
+.mkt-card h3 { font-size: 0.92rem; color: var(--green-deep); margin-bottom: 0.4rem; }
+.mkt-card p { font-size: 0.8rem; color: #666; line-height: 1.5; }
+
+/* ── 11. R+D ── */
+#rd { background: linear-gradient(135deg, #1A1A1A, #2D2D2D); color: white; }
+#rd .section-tag { background: rgba(116,198,157,0.2); color: var(--green-light); }
+#rd h2 { color: white; }
+.rd-grid {
+  display: grid;
+  grid-template-columns: 1.2fr 1fr;
+  gap: 4rem;
+  align-items: center;
+  margin-top: 2rem;
+}
+.rd-patents {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+  margin-top: 1.5rem;
+}
+.patent-badge {
+  background: rgba(255,255,255,0.06);
+  border: 1px solid rgba(255,255,255,0.1);
+  border-radius: 8px;
+  padding: 1rem 1.2rem;
+  font-size: 0.82rem;
+  color: rgba(255,255,255,0.75);
+}
+.patent-badge strong { display: block; color: var(--green-light); margin-bottom: 0.2rem; font-size: 0.75rem; }
+
+.rd-visual {
+  background: rgba(255,255,255,0.04);
+  border: 1px solid rgba(255,255,255,0.08);
+  border-radius: 16px;
+  padding: 2.5rem;
+  text-align: center;
+}
+.rd-big { font-family: 'DM Serif Display', serif; font-size: 5rem; color: var(--green-light); line-height: 1; }
+.rd-sub { font-size: 0.8rem; color: rgba(255,255,255,0.5); margin-top: 0.5rem; }
+
+/* ── 12. PROCESSOS ── */
+#processos { background: white; }
+.process-flow {
+  display: flex;
+  gap: 0;
+  margin-top: 3rem;
+  position: relative;
+}
+.process-step {
+  flex: 1;
+  text-align: center;
+  position: relative;
+  padding: 1.5rem 1rem;
+}
+.process-step::after {
+  content: '→';
+  position: absolute;
+  right: -0.5rem;
+  top: 2.2rem;
+  font-size: 1.2rem;
+  color: var(--green-pale);
+  z-index: 2;
+}
+.process-step:last-child::after { display: none; }
+.step-num {
+  width: 52px; height: 52px;
+  background: var(--green-deep);
+  color: white;
+  border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  font-family: 'DM Serif Display', serif;
+  font-size: 1.3rem;
+  margin: 0 auto 1rem;
+}
+.process-step h4 { font-size: 0.85rem; color: var(--green-deep); margin-bottom: 0.4rem; font-weight: 600; }
+.process-step p { font-size: 0.75rem; color: #888; }
+
+/* ── 13. LOGÍSTICA ── */
+#logistica { background: var(--warm-white); }
+.log-grid {
+  display: grid;
+  grid-template-columns: 1fr 1.2fr;
+  gap: 4rem;
+  align-items: center;
+  margin-top: 2rem;
+}
+.log-stats {
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+}
+.log-stat-row {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  background: white;
+  border-radius: 10px;
+  padding: 1.2rem 1.5rem;
+  box-shadow: var(--shadow);
+}
+.log-icon { font-size: 1.8rem; }
+.log-stat-num { font-family: 'DM Serif Display', serif; font-size: 1.8rem; color: var(--green-deep); }
+.log-stat-txt { font-size: 0.78rem; color: #888; }
+.log-visual {
+  background: linear-gradient(135deg, var(--green-bright), var(--green-light));
+  border-radius: 16px;
+  padding: 3rem;
+  text-align: center;
+  color: var(--green-deep);
+}
+.log-visual-icon { font-size: 5rem; margin-bottom: 1rem; display: block; }
+.log-visual h3 { color: var(--green-deep); margin-bottom: 0.5rem; }
+
+/* ── 14. INTERNACIONALITZACIÓ ── */
+#internacionalitzacio {
+  background: var(--green-deep);
+  color: white;
+}
+#internacionalitzacio h2 { color: white; }
+#internacionalitzacio .section-tag { background: rgba(116,198,157,0.2); color: var(--green-light); }
+.int-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4rem;
+  align-items: center;
+  margin-top: 2rem;
+}
+.int-timeline { display: flex; flex-direction: column; gap: 1.2rem; }
+.int-tl-item {
+  display: flex;
+  gap: 1.5rem;
+  align-items: flex-start;
+}
+.int-year {
+  background: var(--accent);
+  color: var(--charcoal);
+  padding: 0.4rem 0.8rem;
+  border-radius: 6px;
+  font-weight: 700;
+  font-size: 0.85rem;
+  font-family: 'Space Mono', monospace;
+  flex-shrink: 0;
+}
+.int-content { color: rgba(255,255,255,0.8); font-size: 0.9rem; }
+.int-content strong { color: white; display: block; margin-bottom: 0.2rem; }
+
+.int-map {
+  background: rgba(255,255,255,0.06);
+  border-radius: 16px;
+  padding: 2.5rem;
+  text-align: center;
+}
+.flag-row { display: flex; justify-content: center; gap: 2rem; flex-wrap: wrap; }
+.flag-item { text-align: center; }
+.flag-emoji { font-size: 3.5rem; display: block; margin-bottom: 0.5rem; }
+.flag-lbl { font-size: 0.78rem; color: rgba(255,255,255,0.65); }
+
+/* ── 15. RRHH ── */
+#rrhh { background: white; }
+.rrhh-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+  margin-top: 2rem;
+}
+.rrhh-card {
+  background: var(--warm-white);
+  border-radius: 12px;
+  padding: 1.4rem;
+  text-align: center;
+  border: 1px solid var(--border);
+  transition: all .3s;
+}
+.rrhh-card:hover { border-color: var(--green-bright); box-shadow: var(--shadow); }
+.rrhh-card .big-num { font-family: 'DM Serif Display', serif; font-size: 2.2rem; color: var(--green-deep); }
+.rrhh-card p { font-size: 0.8rem; color: #666; margin-top: 0.3rem; line-height: 1.5; }
+
+/* ── 16. COMPETÈNCIA ── */
+#competencia { background: var(--warm-white); }
+.comp-table-wrap { overflow-x: auto; margin-top: 2rem; border-radius: 12px; box-shadow: var(--shadow); }
+.comp-table { width: 100%; border-collapse: collapse; background: white; }
+.comp-table th { background: var(--green-deep); color: white; padding: 1rem 1.5rem; text-align: left; font-family: 'Space Mono', monospace; font-size: 0.7rem; letter-spacing: 1px; font-weight: 400; }
+.comp-table td { padding: 0.9rem 1.5rem; border-bottom: 1px solid var(--green-cream); font-size: 0.85rem; }
+.comp-table tr:last-child td { border-bottom: none; }
+.comp-table tr.higienex td { background: var(--green-cream); font-weight: 600; }
+.check { color: var(--green-bright); font-size: 1rem; }
+.cross { color: #E57373; }
+.partial { color: var(--accent); }
+
+/* ── 17. RSC ── */
+#rsc { background: white; }
+.rsc-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+  margin-top: 2rem;
+}
+.rsc-card {
+  border-left: 4px solid var(--green-bright);
+  padding: 1.5rem 1.5rem 1.5rem 2rem;
+  background: var(--warm-white);
+  border-radius: 0 10px 10px 0;
+  transition: box-shadow .3s;
+}
+.rsc-card:hover { box-shadow: var(--shadow); }
+.rsc-card .rsc-icon { font-size: 1.8rem; margin-bottom: 0.8rem; display: block; }
+.rsc-card h3 { font-size: 0.95rem; color: var(--green-deep); margin-bottom: 0.4rem; }
+.rsc-card p { font-size: 0.82rem; color: #666; }
+
+/* ── 18. BLOG ── */
+#blog { background: var(--warm-white); }
+.blog-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+  margin-top: 2rem;
+}
+.blog-card {
+  background: white;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: var(--shadow);
+  transition: transform .3s, box-shadow .3s;
+  cursor: pointer;
+}
+.blog-card:hover { transform: translateY(-6px); box-shadow: var(--shadow-lg); }
+.blog-img {
+  width: 100%;
+  aspect-ratio: 16/9;
+  object-fit: cover;
+}
+.blog-content { padding: 1.5rem; }
+.blog-tag {
+  display: inline-block;
+  background: var(--green-cream);
+  color: var(--green-deep);
+  font-size: 0.65rem;
+  font-weight: 600;
+  padding: 0.2rem 0.6rem;
+  border-radius: 4px;
+  margin-bottom: 0.8rem;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+}
+.blog-title { font-size: 1rem; color: var(--charcoal); margin-bottom: 0.6rem; line-height: 1.4; }
+.blog-meta { font-size: 0.75rem; color: #999; }
+
+/* ── 19. FUTUR ── */
+#futur { background: linear-gradient(160deg, var(--green-deep) 0%, #071E3A 100%); color: white; }
+#futur h2 { color: white; }
+#futur .section-tag { background: rgba(116,198,157,0.15); color: var(--green-light); }
+.futur-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+  margin-top: 2rem;
+}
+.futur-card {
+  background: rgba(255,255,255,0.06);
+  border: 1px solid rgba(255,255,255,0.1);
+  border-radius: 12px;
+  padding: 1.4rem;
+  text-align: center;
+  transition: all .3s;
+}
+.futur-card:hover { background: rgba(255,255,255,0.1); border-color: var(--green-light); }
+.futur-year { font-family: 'Space Mono', monospace; font-size: 0.7rem; color: var(--green-light); letter-spacing: 2px; margin-bottom: 0.6rem; }
+.futur-card h3 { color: white; font-size: 1rem; margin-bottom: 0.5rem; }
+.futur-card p { color: rgba(255,255,255,0.7); font-size: 0.8rem; line-height: 1.5; }
+
+/* ── 20. CASOS ── */
+#casos { background: white; }
+.casos-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+  margin-top: 2rem;
+}
+.caso-card {
+  background: var(--warm-white);
+  border-radius: 12px;
+  padding: 2rem;
+  border: 1px solid var(--border);
+  transition: all .3s;
+}
+.caso-card:hover { border-color: var(--green-bright); box-shadow: var(--shadow); transform: translateY(-3px); }
+.caso-sector {
+  display: inline-block;
+  background: var(--green-deep);
+  color: white;
+  font-size: 0.7rem;
+  padding: 0.25rem 0.7rem;
+  border-radius: 4px;
+  margin-bottom: 1rem;
+  font-family: 'Space Mono', monospace;
+}
+.caso-card h3 { font-size: 1rem; color: var(--charcoal); margin-bottom: 0.8rem; }
+.caso-metric {
+  font-family: 'DM Serif Display', serif;
+  font-size: 2.5rem;
+  color: var(--green-bright);
+  line-height: 1;
+}
+.caso-metric-lbl { font-size: 0.78rem; color: #888; }
+
+/* ── 21. FAQ ── */
+#faq { background: var(--warm-white); }
+.faq-list {
+  max-width: 800px;
+  margin: 2rem auto 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+}
+.faq-item {
+  background: white;
+  border-radius: 10px;
+  border: 1px solid var(--border);
+  overflow: hidden;
+  box-shadow: var(--shadow);
+}
+.faq-q {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.2rem 1.5rem;
+  cursor: pointer;
+  font-weight: 600;
+  font-size: 0.9rem;
+  color: var(--charcoal);
+  transition: background .2s;
+}
+.faq-q:hover { background: var(--green-cream); }
+.faq-icon {
+  width: 24px; height: 24px;
+  background: var(--green-cream);
+  border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 1rem;
+  color: var(--green-deep);
+  flex-shrink: 0;
+  transition: transform .3s;
+}
+.faq-item.open .faq-icon { transform: rotate(45deg); }
+.faq-a {
+  display: none;
+  padding: 0 1.5rem 1.2rem;
+  font-size: 0.88rem;
+  color: #666;
+  border-top: 1px solid var(--border);
+  padding-top: 1rem;
+  line-height: 1.8;
+}
+.faq-item.open .faq-a { display: block; }
+
+/* ── 22. CONTACTE ── */
+#contacte { background: white; padding-bottom: 0; }
+.contact-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4rem;
+  margin-top: 2rem;
+  padding-bottom: 5rem;
+}
+.contact-info { display: flex; flex-direction: column; gap: 1.5rem; }
+.contact-item {
+  display: flex;
+  gap: 1rem;
+  align-items: flex-start;
+}
+.contact-icon {
+  width: 44px; height: 44px;
+  background: var(--green-cream);
+  border-radius: 10px;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 1.2rem;
+  flex-shrink: 0;
+}
+.contact-item h4 { font-size: 0.78rem; color: #999; text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 0.2rem; font-family: 'Space Mono', monospace; }
+.contact-item p, .contact-item a { font-size: 0.9rem; color: var(--charcoal); text-decoration: none; }
+.contact-item a:hover { color: var(--green-bright); }
+
+.contact-form { display: flex; flex-direction: column; gap: 1rem; }
+.form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+.form-field { display: flex; flex-direction: column; gap: 0.3rem; }
+.form-field label { font-size: 0.75rem; font-weight: 600; color: #666; letter-spacing: 0.3px; }
+.form-field input, .form-field textarea, .form-field select {
+  border: 1.5px solid var(--border);
+  border-radius: 8px;
+  padding: 0.75rem 1rem;
+  font-size: 0.88rem;
+  font-family: 'DM Sans', sans-serif;
+  background: var(--warm-white);
+  transition: border-color .2s;
+  color: var(--charcoal);
+  outline: none;
+}
+.form-field input:focus, .form-field textarea:focus, .form-field select:focus {
+  border-color: var(--green-bright);
+}
+.form-field textarea { resize: vertical; min-height: 120px; }
+.btn-submit {
+  background: var(--green-deep);
+  color: white;
+  border: none;
+  padding: 1rem 2rem;
+  border-radius: 8px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all .25s;
+  font-family: 'DM Sans', sans-serif;
+}
+.btn-submit:hover { background: var(--green-mid); transform: translateY(-2px); box-shadow: 0 8px 24px rgba(27,67,50,0.3); }
+
+.map-embed {
+  border-radius: 0;
+  overflow: hidden;
+  height: 400px;
+  width: 100%;
+  border: none;
+  border-top: 3px solid var(--green-bright);
+}
+
+/* ── FOOTER ── */
+footer {
+  background: var(--green-deep);
+  color: rgba(255,255,255,0.7);
+  padding: 3rem 2rem 2rem;
+}
+.footer-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr 1fr;
+  gap: 3rem;
+  padding-bottom: 2rem;
+  border-bottom: 1px solid rgba(255,255,255,0.1);
+}
+.footer-brand .logo { color: white; font-size: 1.6rem; margin-bottom: 0.8rem; display: block; }
+.footer-brand p { font-size: 0.82rem; line-height: 1.8; }
+footer h4 { color: white; font-size: 0.75rem; letter-spacing: 1.5px; text-transform: uppercase; margin-bottom: 1rem; font-family: 'Space Mono', monospace; font-weight: 400; }
+footer ul { list-style: none; display: flex; flex-direction: column; gap: 0.4rem; }
+footer ul a { color: rgba(255,255,255,0.6); text-decoration: none; font-size: 0.82rem; transition: color .2s; }
+footer ul a:hover { color: var(--green-light); }
+.footer-bottom {
+  max-width: 1200px;
+  margin: 1.5rem auto 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 0.75rem;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+.iso-badge {
+  background: rgba(255,255,255,0.08);
+  padding: 0.3rem 0.8rem;
+  border-radius: 4px;
+  font-size: 0.7rem;
+  border: 1px solid rgba(255,255,255,0.1);
+}
+
+/* ── VISUAL SECTION ENHANCEMENTS ── */
+.section-header {
+  margin-bottom: 2rem;
+  border-bottom: 1px solid var(--border);
+  padding-bottom: 1rem;
+}
+
+/* Reduce timeline item spacing */
+.tl-item { margin-bottom: 1rem; }
+.tl-content { font-size: 0.85rem; }
+
+/* Compact innov-highlight */
+.innov-highlight { padding: 1.4rem; }
+.innov-highlight h3 { font-size: 1rem; margin-bottom: 0.5rem; }
+.innov-highlight p { font-size: 0.85rem; }
+
+/* Compact client cards */
+.client-card { padding: 1.3rem; }
+.client-card h3 { font-size: 0.95rem; }
+.client-card p { font-size: 0.8rem; line-height: 1.5; }
+
+/* Compact RSC cards */
+.rsc-card { padding: 1.2rem 1.2rem 1.2rem 1.6rem; }
+.rsc-card .rsc-icon { font-size: 1.5rem; margin-bottom: 0.5rem; }
+.rsc-card h3 { font-size: 0.9rem; }
+.rsc-card p { font-size: 0.78rem; }
+
+/* caso-card compact */
+.caso-card { padding: 1.4rem; }
+.caso-metric { font-size: 2.2rem; }
+
+/* Process step compact */
+.step-num { width: 44px; height: 44px; font-size: 1.1rem; }
+.process-step h4 { font-size: 0.8rem; }
+.process-step p { font-size: 0.72rem; }
+
+/* Patent badge compact */
+.patent-badge { padding: 0.7rem 0.9rem; font-size: 0.78rem; }
+
+/* Digi card compact */
+.digi-card { padding: 1rem 1.2rem; }
+.digi-card h4 { font-size: 0.85rem; }
+.digi-card p { font-size: 0.78rem; }
+
+/* Log stat row compact */
+.log-stat-row { padding: 1rem 1.2rem; }
+.log-stat-num { font-size: 1.5rem; }
+.log-visual { padding: 2rem; }
+.log-visual-icon { font-size: 4rem; }
+
+/* Big metric smaller */
+.big-metric { font-size: 3.5rem; }
+
+/* RD visual compact */
+.rd-visual { padding: 2rem; }
+.rd-big { font-size: 4rem; }
+
+/* Reduce int timeline spacing */
+.int-tl-item { padding: 0; }
+.int-content { font-size: 0.85rem; }
+.int-map { padding: 2rem; }
+
+/* Blog content padding */
+.blog-content { padding: 1.1rem; }
+.blog-title { font-size: 0.9rem; }
+
+/* Market banner compact */
+.market-banner { padding: 1.5rem 2rem; }
+.market-banner h3 { font-size: 1.1rem; }
+.market-banner p { font-size: 0.85rem; }
+
+/* Contact info */
+.contact-info { gap: 1.1rem; }
+.contact-grid { padding-bottom: 4rem; }
+.contact-icon { width: 38px; height: 38px; font-size: 1rem; }
+
+/* Valor item compact */
+.valor-item { padding: 0.9rem; }
+.valor-item .v-icon { font-size: 1.3rem; margin-bottom: 0.3rem; }
+.valor-item strong { font-size: 0.7rem; }
+.valor-item span { font-size: 0.7rem; }
+
+/* ── IMAGE IMPROVEMENTS ── */
+img {
+  display: block;
+  background: var(--green-cream);
+}
+.sobre-img img,
+.hero-img-wrap img,
+.gallery-item img,
+.blog-img {
+  background: linear-gradient(135deg, var(--green-cream), #c8dff5);
+  min-height: 80px;
+}
+
+/* ── ANIMATIONS ── */
+.fade-in {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+.fade-in.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ── RESPONSIVE ── */
+@media (max-width: 1024px) {
+  .hero-content { grid-template-columns: 1fr; }
+  .hero-right { display: none; }
+  .sobre-grid, .digital-grid, .innov-cols, .log-grid, .int-grid, .contact-grid { grid-template-columns: 1fr; }
+  .mvv-grid { grid-template-columns: 1fr 1fr; }
+  .valors-list { grid-template-columns: repeat(3, 1fr); }
+  .gallery-grid { grid-template-columns: repeat(2, 1fr); }
+  .footer-inner { grid-template-columns: 1fr 1fr; }
+  .casos-grid, .blog-grid, .futur-grid, .sost-grid, .rsc-grid, .rrhh-grid, .mkt-grid { grid-template-columns: 1fr 1fr; }
+}
+
+@media (max-width: 768px) {
+  h2 { font-size: 1.8rem; }
+  section { padding: 3.5rem 1.2rem; }
+  .nav-links { display: none; flex-direction: column; position: absolute; top: 64px; left: 0; right: 0; background: white; padding: 1rem; box-shadow: var(--shadow); border-top: 1px solid var(--border); gap: 0.2rem; }
+  .nav-links.open { display: flex; }
+  .nav-links a { padding: 0.6rem 1rem; font-size: 0.82rem; }
+  .hamburger { display: flex; }
+  .mvv-grid, .valors-list { grid-template-columns: 1fr; }
+  .clients-grid { grid-template-columns: 1fr; }
+  .casos-grid, .blog-grid, .futur-grid, .sost-grid, .rsc-grid, .rrhh-grid, .mkt-grid { grid-template-columns: 1fr; }
+  .process-flow { flex-direction: column; }
+  .process-step::after { display: none; }
+  .footer-inner { grid-template-columns: 1fr; }
+  .form-row { grid-template-columns: 1fr; }
+  .hero-stats { position: static; margin-top: 1.5rem; }
+  .hero-btns { flex-direction: column; }
+}
+</style>
+</head>
+<body>
+
+<!-- SPLASH PANTALLA INICI -->
+<div id="splashMenu">
+
+  <!-- Fons amb partícules i gradient -->
+  <div class="sp-bg"></div>
+  <div class="sp-particles">
+    <div class="sp-p p1"></div><div class="sp-p p2"></div>
+    <div class="sp-p p3"></div><div class="sp-p p4"></div>
+    <div class="sp-p p5"></div><div class="sp-p p6"></div>
+  </div>
+  <div class="sp-grid"></div>
+
+  <!-- ZONA CENTRAL -->
+  <div class="sp-center">
+
+    <!-- Logo SVG -->
+    <div class="sp-logo-wrap">
+      <svg class="sp-logo-svg" viewBox="0 0 220 220" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+          <linearGradient id="spGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" stop-color="rgba(255,255,255,0.22)"/>
+            <stop offset="100%" stop-color="rgba(255,255,255,0.06)"/>
+          </linearGradient>
+          <filter id="spGlow">
+            <feGaussianBlur stdDeviation="3" result="blur"/>
+            <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+          </filter>
+        </defs>
+        <!-- Outer glow ring -->
+        <circle cx="110" cy="110" r="104" fill="none" stroke="rgba(179,217,245,0.15)" stroke-width="1"/>
+        <circle cx="110" cy="110" r="96" fill="none" stroke="rgba(255,255,255,0.06)" stroke-width="0.5"/>
+        <!-- Shield shape -->
+        <path d="M110 14 C110 14 176 46 176 112 C176 158 146 188 110 206 C74 188 44 158 44 112 C44 46 110 14 110 14 Z"
+          fill="url(#spGrad)" stroke="rgba(255,255,255,0.2)" stroke-width="1.2"/>
+        <!-- Water drop inside shield -->
+        <path d="M86 84 Q96 64 110 64 Q124 64 134 84 Q146 108 133 125 Q122 138 110 140 Q98 138 87 125 Q74 108 86 84 Z"
+          fill="rgba(255,255,255,0.1)" stroke="rgba(255,255,255,0.35)" stroke-width="1.2"/>
+        <!-- H letter -->
+        <rect x="88" y="87" width="8" height="30" rx="2" fill="white" filter="url(#spGlow)"/>
+        <rect x="114" y="87" width="8" height="30" rx="2" fill="white" filter="url(#spGlow)"/>
+        <rect x="88" y="99" width="34" height="8" rx="2" fill="white"/>
+        <!-- X accent -->
+        <g transform="translate(128,80)" filter="url(#spGlow)">
+          <rect x="-3.5" y="-13" width="5.5" height="26" rx="2.5" fill="#F2A900" transform="rotate(45)"/>
+          <rect x="-3.5" y="-13" width="5.5" height="26" rx="2.5" fill="#F2A900" transform="rotate(-45)"/>
+        </g>
+        <!-- Star sparkle -->
+        <path d="M110 20 L112.5 27 L120 29 L112.5 31 L110 38 L107.5 31 L100 29 L107.5 27 Z" fill="#F2A900" opacity="0.9"/>
+        <!-- Side dots -->
+        <circle cx="48" cy="112" r="3" fill="rgba(179,217,245,0.5)"/>
+        <circle cx="172" cy="112" r="3" fill="rgba(179,217,245,0.5)"/>
+      </svg>
+    </div>
+
+    <!-- Nombre empresa MUY GRANDE -->
+    <div class="sp-company-name">
+      HIGIENE<span class="sp-x">X</span>
+    </div>
+    <!-- Eslogan -->
+    <div class="sp-slogan">
+      <span class="sp-line"></span>
+      Higiene impecable · Futur sostenible
+      <span class="sp-line"></span>
+    </div>
+
+    <!-- Botó entrar -->
+    <button class="sp-enter-btn" onclick="closeSplash('#home')">
+      Entrar a la web
+      <svg width="18" height="18" viewBox="0 0 18 18" fill="none" style="display:inline;vertical-align:middle;margin-left:8px;">
+        <path d="M3.5 9h11M10 4.5l4.5 4.5L10 13.5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+    </button>
+
+    <!-- Certificacions sota el botó -->
+    <div class="sp-certs">
+      <span>✅ ISO 14001</span>
+      <span>·</span>
+      <span>🔬 19 Patentes</span>
+      <span>·</span>
+      <span>🌿 ECO Certificat</span>
+      <span>·</span>
+      <span>Desde 2015</span>
+    </div>
+
+  </div>
+
+  <!-- PEU DEL SPLASH -->
+  <footer class="sp-footer">
+    <div class="sp-footer-inner">
+
+      <!-- Termes i condicions -->
+      <div class="sp-footer-col">
+        <h4 class="sp-footer-title">Termes i Condicions</h4>
+        <p>L'accés i ús d'aquesta web implica l'acceptació de les condicions generals d'ús. HIGIENEX S.L. es reserva el dret de modificar els continguts sense avís previ. Tota la informació és merament informativa. Els preus i disponibilitat de productes s'han de confirmar directament amb el nostre equip comercial.</p>
+        <p style="margin-top:0.5rem;">© 2025 HIGIENEX S.L. · Tots els drets reservats · Política de Privacitat · Avís Legal</p>
+      </div>
+
+      <!-- Separador vertical -->
+      <div class="sp-footer-divider"></div>
+
+      <!-- Dades de contacte -->
+      <div class="sp-footer-col">
+        <h4 class="sp-footer-title">Contacte</h4>
+        <div class="sp-contact-row">
+          <span class="sp-contact-icon">📍</span>
+          <span>Calle de la Industria, 25 · 46010 Valencia, España</span>
+        </div>
+        <div class="sp-contact-row">
+          <span class="sp-contact-icon">📞</span>
+          <span><a href="tel:963123456" class="sp-link">963 123 456</a> · <a href="tel:645678901" class="sp-link">645 678 901</a></span>
+        </div>
+        <div class="sp-contact-row">
+          <span class="sp-contact-icon">✉️</span>
+          <span>
+            <a href="mailto:contacto@higienexvalencia.es" class="sp-link">contacto@higienexvalencia.es</a><br>
+            <a href="mailto:administracion@higienexvalencia.es" class="sp-link">administracion@higienexvalencia.es</a>
+          </span>
+        </div>
+        <div class="sp-contact-row">
+          <span class="sp-contact-icon">🕒</span>
+          <span>Dilluns – Divendres: 8:00 – 17:30</span>
+        </div>
+      </div>
+
+    </div>
+  </footer>
+
+</div>
+
+<style>
+/* ===== SPLASH STYLES ===== */
+
+#splashMenu {
+  position: fixed;
+  inset: 0;
+  z-index: 99999;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch; /* iOS momentum scroll */
+  font-family: 'DM Sans', sans-serif;
+  touch-action: pan-y;
+}
+
+/* Fons */
+.sp-bg {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  background: linear-gradient(160deg, #04111F 0%, #0A2F55 30%, #103E72 60%, #1A6BB5 100%);
+}
+
+.sp-particles {
+  position: fixed;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+  overflow: hidden;
+}
+.sp-p {
+  position: absolute;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(100,181,232,0.18) 0%, transparent 70%);
+  animation: spFloat linear infinite;
+}
+.p1 { width: 500px; height: 500px; left: -150px; top: -100px; animation-duration: 28s; }
+.p2 { width: 350px; height: 350px; right: -80px; top: 20%; animation-duration: 22s; animation-delay: -8s; }
+.p3 { width: 250px; height: 250px; left: 20%; bottom: 10%; animation-duration: 18s; animation-delay: -5s; }
+.p4 { width: 600px; height: 600px; right: -200px; bottom: -200px; animation-duration: 32s; animation-delay: -15s; }
+.p5 { width: 180px; height: 180px; left: 60%; top: 15%; animation-duration: 16s; animation-delay: -3s; }
+.p6 { width: 120px; height: 120px; left: 10%; top: 55%; animation-duration: 14s; animation-delay: -9s; }
+
+@keyframes spFloat {
+  0%, 100% { transform: translateY(0) scale(1); }
+  50% { transform: translateY(-40px) scale(1.05); }
+}
+
+.sp-grid {
+  position: fixed;
+  inset: 0;
+  z-index: 2;
+  background-image:
+    linear-gradient(rgba(255,255,255,0.018) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,0.018) 1px, transparent 1px);
+  background-size: 56px 56px;
+  pointer-events: none;
+}
+
+/* === ZONA CENTRAL === */
+.sp-center {
+  position: relative;
+  z-index: 10;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 3rem 2rem 2rem;
+  text-align: center;
+  animation: spReveal 0.9s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+@keyframes spReveal {
+  from { opacity: 0; transform: translateY(32px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Logo */
+.sp-logo-wrap {
+  margin-bottom: 2rem;
+}
+.sp-logo-svg {
+  width: clamp(90px, 14vw, 140px);
+  height: auto;
+  filter: drop-shadow(0 0 40px rgba(100,181,232,0.4)) drop-shadow(0 8px 24px rgba(0,0,0,0.4));
+  animation: spLogoFloat 5s ease-in-out infinite;
+}
+@keyframes spLogoFloat {
+  0%, 100% { transform: translateY(0) rotate(0deg); }
+  50% { transform: translateY(-10px) rotate(0.5deg); }
+}
+
+/* Nom de l'empresa */
+.sp-company-name {
+  font-family: 'DM Serif Display', serif;
+  font-size: clamp(4rem, 13vw, 10rem);
+  letter-spacing: -4px;
+  line-height: 0.9;
+  color: white;
+  text-shadow: 0 4px 60px rgba(0,0,0,0.3);
+  animation: spReveal 0.9s cubic-bezier(0.16, 1, 0.3, 1) 0.1s both;
+}
+.sp-x {
+  color: #F2A900;
+  font-style: italic;
+  text-shadow: 0 0 60px rgba(242,169,0,0.6), 0 4px 30px rgba(0,0,0,0.3);
+}
+
+/* Eslogan */
+.sp-slogan {
+  display: flex;
+  align-items: center;
+  gap: 1.2rem;
+  font-family: 'Space Mono', monospace;
+  font-size: clamp(0.6rem, 1.4vw, 0.75rem);
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: #B3D9F5;
+  margin-bottom: 3rem;
+  animation: spReveal 0.9s cubic-bezier(0.16, 1, 0.3, 1) 0.3s both;
+}
+.sp-line {
+  display: block;
+  width: 50px;
+  height: 1px;
+  background: linear-gradient(to right, transparent, rgba(179,217,245,0.5));
+}
+.sp-slogan .sp-line:last-child {
+  background: linear-gradient(to left, transparent, rgba(179,217,245,0.5));
+}
+
+/* Botó entrar */
+.sp-enter-btn {
+  background: linear-gradient(135deg, #F2A900 0%, #e09000 100%);
+  color: #1A1A1A;
+  border: none;
+  padding: 1rem 3rem;
+  border-radius: 50px;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 1rem;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  cursor: pointer;
+  transition: all 0.25s ease;
+  box-shadow: 0 8px 32px rgba(242,169,0,0.35), 0 2px 8px rgba(0,0,0,0.2);
+  margin-bottom: 2rem;
+  animation: spReveal 0.9s cubic-bezier(0.16, 1, 0.3, 1) 0.4s both;
+  touch-action: manipulation;
+  -webkit-tap-highlight-color: transparent;
+  user-select: none;
+}
+.sp-enter-btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 16px 48px rgba(242,169,0,0.5), 0 4px 12px rgba(0,0,0,0.2);
+  background: linear-gradient(135deg, #FFB800 0%, #F2A900 100%);
+}
+.sp-enter-btn:active { transform: translateY(-1px); }
+
+/* Certificacions */
+.sp-certs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+  justify-content: center;
+  align-items: center;
+  font-size: 0.72rem;
+  color: rgba(255,255,255,0.35);
+  font-family: 'Space Mono', monospace;
+  letter-spacing: 0.5px;
+  animation: spReveal 0.9s cubic-bezier(0.16, 1, 0.3, 1) 0.5s both;
+}
+
+/* ===== PEU DEL SPLASH ===== */
+.sp-footer {
+  position: relative;
+  z-index: 10;
+  width: 100%;
+  background: rgba(0,0,0,0.35);
+  backdrop-filter: blur(16px);
+  border-top: 1px solid rgba(255,255,255,0.08);
+  padding: 2rem;
+}
+
+.sp-footer-inner {
+  max-width: 960px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  gap: 2rem;
+  align-items: start;
+}
+
+.sp-footer-col {
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+}
+
+.sp-footer-title {
+  font-family: 'Space Mono', monospace;
+  font-size: 0.62rem;
+  letter-spacing: 2.5px;
+  text-transform: uppercase;
+  color: rgba(179,217,245,0.7);
+  margin-bottom: 0.3rem;
+  font-weight: 400;
+}
+
+.sp-footer-col p {
+  font-size: 0.72rem;
+  color: rgba(255,255,255,0.38);
+  line-height: 1.7;
+}
+
+.sp-footer-divider {
+  width: 1px;
+  align-self: stretch;
+  background: rgba(255,255,255,0.1);
+  margin: 0 0.5rem;
+}
+
+.sp-contact-row {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.6rem;
+  font-size: 0.75rem;
+  color: rgba(255,255,255,0.55);
+  line-height: 1.6;
+}
+.sp-contact-icon {
+  font-size: 0.85rem;
+  flex-shrink: 0;
+  margin-top: 1px;
+}
+.sp-link {
+  color: rgba(179,217,245,0.75);
+  text-decoration: none;
+  transition: color 0.2s;
+}
+.sp-link:hover { color: #B3D9F5; }
+
+@media (max-width: 768px) {
+  .sp-company-name { letter-spacing: -2px; }
+  .sp-footer-inner { grid-template-columns: 1fr; }
+  .sp-footer-divider { width: 100%; height: 1px; align-self: auto; margin: 0.5rem 0; }
+  .sp-slogan { flex-direction: column; gap: 0.5rem; }
+  .sp-line { width: 30px; }
+}
+</style>
+
+<!-- MINI NAV (shown after splash) -->
+<nav id="mainNav" style="display:none;">
+  <div class="nav-inner">
+
+    <!-- BOTÓ MENÚ — esquerra -->
+    <div style="position:relative;">
+      <button id="menuToggleBtn" aria-label="Menú" style="display:flex;align-items:center;gap:0.5rem;background:rgba(11,61,107,0.07);border:1px solid var(--border);color:var(--green-deep);padding:0.45rem 1rem;border-radius:8px;cursor:pointer;font-family:'DM Sans',sans-serif;font-size:0.82rem;font-weight:700;touch-action:manipulation;-webkit-tap-highlight-color:transparent;">
+        <span id="menuIcon">☰</span> Menú
+      </button>
+      <!-- DROPDOWN -->
+      <div id="navDropdown" style="display:none;position:absolute;top:calc(100% + 8px);left:0;background:white;border:1px solid var(--border);border-radius:12px;box-shadow:0 16px 48px rgba(11,61,107,0.18);min-width:220px;z-index:9999;overflow:hidden;">
+        <div style="padding:0.5rem;">
+          <a class="dditem" href="#home">🏠 Inici</a>
+          <a class="dditem" href="#sobre">🏢 Empresa</a>
+          <a class="dditem" href="#missio">🎯 Missió i Valors</a>
+          <a class="dditem" href="#productes">🧴 Productes</a>
+          <a class="dditem" href="#digitalitzacio">💻 Digitalització</a>
+          <a class="dditem" href="#sostenibilitat">🌿 Sostenibilitat</a>
+          <a class="dditem" href="#organitzacio">📊 Organigrama</a>
+          <a class="dditem" href="#clients">🤝 Clients</a>
+          <a class="dditem" href="#innovacio">🔬 Innovació</a>
+          <a class="dditem" href="#marqueting">📣 Màrqueting</a>
+          <a class="dditem" href="#rd">⚗️ R+D</a>
+          <a class="dditem" href="#processos">🏭 Producció</a>
+          <a class="dditem" href="#logistica">🚛 Logística</a>
+          <a class="dditem" href="#internacionalitzacio">🌍 Internacional</a>
+          <a class="dditem" href="#rrhh">👥 RRHH</a>
+          <a class="dditem" href="#competencia">📈 Mercat</a>
+          <a class="dditem" href="#rsc">♻️ RSC</a>
+          <a class="dditem" href="#blog">📝 Blog</a>
+          <a class="dditem" href="#futur">🚀 Futur</a>
+          <a class="dditem" href="#casos">🏆 Casos d'Èxit</a>
+          <a class="dditem" href="#faq">❓ FAQ</a>
+          <a class="dditem dditem-cta" href="#contacte">📞 Contacte</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- LOGO — centre/dreta -->
+    <a href="#home" class="logo" style="display:flex;align-items:center;gap:0.5rem;margin-left:auto;">
+      <svg width="26" height="26" viewBox="0 0 220 220" xmlns="http://www.w3.org/2000/svg" style="flex-shrink:0;">
+        <path d="M110 18 C110 18 170 48 170 110 C170 155 143 185 110 202 C77 185 50 155 50 110 C50 48 110 18 110 18 Z" fill="url(#navShieldGrad2)"/>
+        <rect x="89" y="88" width="7" height="28" rx="1.5" fill="white"/>
+        <rect x="113" y="88" width="7" height="28" rx="1.5" fill="white"/>
+        <rect x="89" y="99.5" width="31" height="7" rx="1.5" fill="white"/>
+        <g transform="translate(126,82)">
+          <rect x="-4" y="-12" width="5" height="24" rx="2" fill="#F2A900" transform="rotate(45)"/>
+          <rect x="-4" y="-12" width="5" height="24" rx="2" fill="#F2A900" transform="rotate(-45)"/>
+        </g>
+        <defs>
+          <linearGradient id="navShieldGrad2" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" stop-color="#1565A8"/><stop offset="100%" stop-color="#0B3D6B"/>
+          </linearGradient>
+        </defs>
+      </svg>
+      HIGIENE<span>X</span>
+    </a>
+
+  </div>
+</nav>
+
+<style>
+.dditem {
+  display:block; padding:0.55rem 0.8rem; font-size:0.82rem; font-weight:500;
+  color:#1A1A1A; text-decoration:none; border-radius:8px; transition:background .15s;
+  white-space:nowrap; touch-action:manipulation; -webkit-tap-highlight-color:transparent;
+}
+.dditem:hover { background:var(--green-cream); color:var(--green-deep); }
+.dditem-cta { background:var(--green-deep); color:white !important; font-weight:700; margin-top:0.3rem; text-align:center; }
+.dditem-cta:hover { background:var(--green-mid) !important; }
+/* Scrollable dropdown on mobile */
+@media(max-width:600px){
+  #navDropdown { position:fixed; top:64px; left:0; right:0; max-height:70vh; overflow-y:auto; -webkit-overflow-scrolling:touch; border-radius:0 0 12px 12px; min-width:unset; width:100%; }
+}
+</style>
+
+<!-- 1. HOME -->
+<section id="home">
+  <div class="hero-bg-pattern"></div>
+  <div class="hero-grid-lines"></div>
+  <div class="hero-content container">
+    <div class="hero-left fade-in">
+      <div class="hero-eyebrow">Líders en Higiene Professional ECO</div>
+      <h1 class="hero-title">HIGIENE<span class="highlight">X</span><br>S.L.</h1>
+      <p class="hero-slogan">Higiene impecable, futur sostenible</p>
+      <p class="hero-desc">Des de 2015 fabricant i distribuint productes de neteja i higiene professional per a hospitals, hotels i indústria. Productes ECO concentrats, certificats ISO14001 i pensats per als sectors més exigents.</p>
+      <div class="hero-btns">
+        <a href="#productes" class="btn-primary">Veure Productes →</a>
+        <a href="#contacte" class="btn-outline">Contactar Ara</a>
+      </div>
+      <div class="hero-stats" style="position:relative;bottom:auto;left:auto;margin-top:2.5rem;">
+        <div class="stat-card">
+          <span class="stat-num">30</span>
+          <span class="stat-lbl">Treballadors</span>
+        </div>
+        <div class="stat-card">
+          <span class="stat-num">19</span>
+          <span class="stat-lbl">Patentes</span>
+        </div>
+        <div class="stat-card">
+          <span class="stat-num">2015</span>
+          <span class="stat-lbl">Fundació</span>
+        </div>
+      </div>
+    </div>
+    <div class="hero-right">
+      <div class="hero-img-wrap">
+        <img loading="lazy" src="https://images.unsplash.com/photo-1584820927498-cfe5211fd8bf?ixlib=rb-4.0.3&w=800&q=80&auto=format&fit=crop&crop=center&cs=tinysrgb" alt="Equip neteja professional">
+        <div class="hero-img-overlay"></div>
+      </div>
+      <div class="hero-stats">
+        <div class="stat-card"><span class="stat-num">19</span><span class="stat-lbl">Patentes</span></div>
+        <div class="stat-card"><span class="stat-num">ISO<br>14001</span><span class="stat-lbl">Certificat</span></div>
+      </div>
+    </div>
+  </div>
+  <div class="scroll-down">SCROLL</div>
+</section>
+
+<!-- 2. SOBRE L'EMPRESA -->
+<section id="sobre">
+  <div class="container">
+    <div class="sobre-grid">
+      <div class="sobre-img fade-in">
+        <img loading="lazy" src="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?ixlib=rb-4.0.3&w=800&q=80&auto=format&fit=crop&crop=center&cs=tinysrgb" alt="Laboratori HIGIENEX">
+      </div>
+      <div class="fade-in">
+        <span class="section-tag">02 / Empresa</span>
+        <h2>La Nostra Història</h2>
+        <p>HIGIENEX S.L. va néixer el 2015 a València de la mà de dos químics amb experiència en química industrial i distribució. El que va començar com una microempresa ha crescut fins a convertir-se en un referent nacional de la higiene professional sostenible.</p>
+        <div class="timeline">
+          <div class="tl-item">
+            <div class="tl-dot">15</div>
+            <div class="tl-content"><span class="tl-year">2015</span> — Fundació a València. Dos químics emprenedors creen HIGIENEX S.L.</div>
+          </div>
+          <div class="tl-item">
+            <div class="tl-dot">18</div>
+            <div class="tl-content"><span class="tl-year">2018</span> — Obertura del Laboratori R+D independent. Primeres patentes.</div>
+          </div>
+          <div class="tl-item">
+            <div class="tl-dot">20</div>
+            <div class="tl-content"><span class="tl-year">2020</span> — Boom COVID-19. HIGIENEX es converteix en líder nacional de desinfectants.</div>
+          </div>
+          <div class="tl-item">
+            <div class="tl-dot">22</div>
+            <div class="tl-content"><span class="tl-year">2022</span> — Certificació ISO14001. Línia ECO concentrada. 30 treballadors, 7 departaments.</div>
+          </div>
+          <div class="tl-item">
+            <div class="tl-dot">25</div>
+            <div class="tl-content"><span class="tl-year">2025</span> — 10è aniversari. Trasllat a El Prat de Llobregat. 19 patentes actives.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 3. MISSIÓ / VISIÓ / VALORS -->
+<section id="missio">
+  <div style="width:100%;height:220px;overflow:hidden;position:relative;">
+    <img loading="lazy" src="https://images.unsplash.com/photo-1576091160550-2173dba999ef?ixlib=rb-4.0.3&w=1400&q=80&auto=format&fit=crop&crop=center&cs=tinysrgb" alt="Equip professional higiene" style="width:100%;height:100%;object-fit:cover;display:block;">
+    <div style="position:absolute;inset:0;background:linear-gradient(to right, rgba(11,61,107,0.88) 0%, rgba(11,61,107,0.3) 100%);display:flex;align-items:center;padding:0 3rem;">
+      <div>
+        <span style="font-family:'Space Mono',monospace;font-size:0.6rem;letter-spacing:2px;text-transform:uppercase;color:var(--green-pale);">03 / MVV</span>
+        <h2 style="color:white;font-size:2rem;margin:0.3rem 0 0;">Missió, Visió i Valors</h2>
+      </div>
+    </div>
+  </div>
+  <div class="container" style="padding-top:2.5rem;background:linear-gradient(135deg, var(--green-deep), var(--green-mid));">
+    <div class="mvv-grid fade-in">
+      <div class="mvv-card">
+        <div class="mvv-icon">🎯</div>
+        <h3>Missió</h3>
+        <p>Fabricar i distribuir productes d'higiene que garanteixin entorns segurs i saludables per als sectors crítics: sanitat, alimentació i hostaleria.</p>
+      </div>
+      <div class="mvv-card">
+        <div class="mvv-icon">🔭</div>
+        <h3>Visió</h3>
+        <p>Ser la referència peninsular en higiene professional sostenible, expandint-nos a Portugal el 2026 i progressivament a tot el mercat de la UE.</p>
+      </div>
+      <div class="mvv-card">
+        <div class="mvv-icon">⭐</div>
+        <h3>Valors</h3>
+        <p>Rigor tècnic, responsabilitat ambiental, adaptabilitat i integritat. Una cultura d'empresa que construeix confiança a llarg termini.</p>
+      </div>
+      <div class="valors-list">
+        <div class="valor-item"><span class="v-icon">🔬</span><strong>Rigor Tècnic</strong><span>Controls estrictes i lab propi</span></div>
+        <div class="valor-item"><span class="v-icon">🤝</span><strong>Client Profess.</strong><span>Solucions a mida sectors</span></div>
+        <div class="valor-item"><span class="v-icon">🌿</span><strong>Resp. Ambiental</strong><span>ECO certificat ISO14001</span></div>
+        <div class="valor-item"><span class="v-icon">⚡</span><strong>Adaptabilitat</strong><span>Resposta COVID rècord</span></div>
+        <div class="valor-item"><span class="v-icon">💎</span><strong>Integritat</strong><span>Confiança clients locals</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 4. PRODUCTES -->
+<section id="productes">
+  <div class="container">
+    <span class="section-tag">04 / Productes</span>
+    <h2>Catàleg de Productes i Serveis</h2>
+    <p>Solucions professionals per als sectors més exigents. Formulació pròpia, alta concentració i respecte pel medi ambient.</p>
+    <div class="products-table-wrap fade-in">
+      <table>
+        <thead>
+          <tr>
+            <th>Producte</th>
+            <th>Sector</th>
+            <th>Diferenciació</th>
+            <th>Certificació</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>ECO Concentrat Pro</strong></td>
+            <td>Hospitals, Sanitari</td>
+            <td>-70% envasos · Alta concentració ×3</td>
+            <td><span class="badge badge-eco">🌿 ISO14001</span></td>
+          </tr>
+          <tr>
+            <td><strong>Desinfectant HOSP-V</strong></td>
+            <td>Sanitari Crític</td>
+            <td>Virucida + Bactericida · Registre biocida</td>
+            <td><span class="badge badge-hosp">🏥 Reg. Biocida</span></td>
+          </tr>
+          <tr>
+            <td><strong>Detergent ALIM-PRO</strong></td>
+            <td>Indústria Alimentària</td>
+            <td>Anti-greix industrial · HACCP compatible</td>
+            <td><span class="badge badge-ind">🏭 HACCP</span></td>
+          </tr>
+          <tr>
+            <td><strong>Net HOSTAL</strong></td>
+            <td>Hotels i Turisme</td>
+            <td>0 residus · Aroma neutre professional</td>
+            <td><span class="badge badge-eco">🌿 ECO</span></td>
+          </tr>
+          <tr>
+            <td><strong>Gamma Superfícies QR</strong></td>
+            <td>General Professional</td>
+            <td>QR traçabilitat · Dosi exacta garantida</td>
+            <td><span class="badge badge-eco">📱 QR Smart</span></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="gallery-grid fade-in">
+      <div class="gallery-item">
+        <img loading="lazy" src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?ixlib=rb-4.0.3&w=500&q=80&auto=format&fit=crop&crop=center&cs=tinysrgb" alt="Productes neteja">
+      </div>
+      <div class="gallery-item">
+        <img loading="lazy" src="https://images.unsplash.com/photo-1563453392212-326f5e854473?ixlib=rb-4.0.3&w=500&q=80&auto=format&fit=crop&crop=center&cs=tinysrgb" alt="Laboratori">
+      </div>
+      <div class="gallery-item">
+        <img loading="lazy" src="https://images.unsplash.com/photo-1532187863486-abf9dbad1b69?ixlib=rb-4.0.3&w=500&q=80&auto=format&fit=crop&crop=center&cs=tinysrgb" alt="Control qualitat">
+      </div>
+      <div class="gallery-item">
+        <img loading="lazy" src="https://images.unsplash.com/photo-1584308666744-24d5c474f2ae?ixlib=rb-4.0.3&w=500&q=80&auto=format&fit=crop&crop=center&cs=tinysrgb" alt="Desinfecció">
+      </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 5. DIGITALITZACIÓ -->
+<section id="digitalitzacio">
+  <div class="container">
+    <span class="section-tag">05 / Digital</span>
+    <h2>Digitalització i Transformació</h2>
+    <div class="digital-grid fade-in">
+      <div class="digital-cards">
+        <div class="digi-card">
+          <div class="digi-icon">🖥️</div>
+          <div><h4>ERP Integrat</h4><p>Sistema de gestió empresarial en temps real que connecta producció, logística i finances.</p></div>
+        </div>
+        <div class="digi-card">
+          <div class="digi-icon">👥</div>
+          <div><h4>CRM Comercial</h4><p>Gestió centralitzada de clients, oportunitats i historial de comandes per maximitzar vendes.</p></div>
+        </div>
+        <div class="digi-card">
+          <div class="digi-icon">📊</div>
+          <div><h4>Business Intelligence</h4><p>Dashboards BI en temps real per a decisions basades en dades objectives.</p></div>
+        </div>
+        <div class="digi-card">
+          <div class="digi-icon">📱</div>
+          <div><h4>QR Traçabilitat</h4><p>Cada producte porta un codi QR amb instruccions d'ús, dosis exactes i traçabilitat de lot.</p></div>
+        </div>
+      </div>
+      <div class="digital-visual">
+        <div class="big-metric">-20%</div>
+        <div class="metric-label">Reducció de costos operatius gràcies a la transformació digital</div>
+        <div style="display:flex;gap:1rem;justify-content:center;flex-wrap:wrap;margin-top:1rem;">
+          <div style="background:rgba(255,255,255,0.12);padding:0.8rem 1.2rem;border-radius:8px;font-size:0.78rem;color:rgba(255,255,255,0.8);">✅ Pla Transformació Digital actiu</div>
+          <div style="background:rgba(255,255,255,0.12);padding:0.8rem 1.2rem;border-radius:8px;font-size:0.78rem;color:rgba(255,255,255,0.8);">📡 Dades en temps real</div>
+          <div style="background:rgba(255,255,255,0.12);padding:0.8rem 1.2rem;border-radius:8px;font-size:0.78rem;color:rgba(255,255,255,0.8);">🔄 Eficiència operativa</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 6. SOSTENIBILITAT -->
+<section id="sostenibilitat">
+  <div class="container">
+    <span class="section-tag">06 / Sostenibilitat</span>
+    <h2>Compromís Ambiental</h2>
+    <p>La sostenibilitat no és màrqueting per a nosaltres. És la base del nostre model de negoci. Productes ECO concentrats que redueixen residus i optimitzen recursos.</p>
+    <div class="sost-grid fade-in">
+      <div class="sost-card">
+        <span class="sost-emoji">🌿</span>
+        <h3>ISO 14001 Certificat</h3>
+        <p>Sistema de gestió ambiental certificat que garanteix el compliment de tots els estàndards mediambientals internacionals.</p>
+      </div>
+      <div class="sost-card">
+        <span class="sost-emoji">♻️</span>
+        <h3>Economia Circular</h3>
+        <p>-70% d'envasos plàstics gràcies als concentrats. Envasos reutilitzables i sistemes de recollida i retorn.</p>
+      </div>
+      <div class="sost-card">
+        <span class="sost-emoji">💧</span>
+        <h3>0 Residus Químics</h3>
+        <p>Formulació que minimitza els residus en el punt d'ús. Biodegradabilitat verificada en laboratori propi.</p>
+      </div>
+      <div class="sost-card">
+        <span class="sost-emoji">🚛</span>
+        <h3>Flota Elèctrica</h3>
+        <p>Distribució amb vehicles elèctrics que redueix les emissions de CO₂ en tota la cadena de subministrament.</p>
+      </div>
+      <div class="sost-card">
+        <span class="sost-emoji">📋</span>
+        <h3>Memòria Sostenibilitat</h3>
+        <p>Informe anual transparent amb tots els indicadors ambientals, socials i de governança de l'empresa.</p>
+      </div>
+      <div class="sost-card">
+        <span class="sost-emoji">🏭</span>
+        <h3>Producció Responsable</h3>
+        <p>Processos de producció certificats amb controls estrictes de residus, energia i consum d'aigua.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 7. ORGANIGRAMA -->
+<section id="organitzacio">
+  <div class="container">
+    <span class="section-tag">07 / Organigrama</span>
+    <h2>Estructura Organitzativa</h2>
+    <p>7 departaments funcionals coordinats sota una Direcció General, amb un Laboratori R+D independent que garanteix la innovació sense interferències operatives.</p>
+    <div class="org-chart fade-in">
+      <div class="org-box" style="margin-bottom:0.5rem;">👔 Direcció General</div>
+      <div class="org-connector"></div>
+      <div style="display:flex;gap:0.8rem;align-items:flex-start;position:relative;padding-top:0;">
+        <div style="position:absolute;top:0;left:0;right:0;height:1px;background:var(--green-pale);"></div>
+        <div class="org-branch">
+          <div class="org-connector" style="height:20px;"></div>
+          <div class="org-box leaf">⚙️ Producció</div>
+        </div>
+        <div class="org-branch">
+          <div class="org-connector" style="height:20px;"></div>
+          <div class="org-box leaf">✅ Qualitat</div>
+        </div>
+        <div class="org-branch">
+          <div class="org-connector" style="height:20px;"></div>
+          <div class="org-box leaf">🚛 Logística</div>
+        </div>
+        <div class="org-branch">
+          <div class="org-connector" style="height:20px;"></div>
+          <div class="org-box leaf">💼 Comercial</div>
+        </div>
+        <div class="org-branch">
+          <div class="org-connector" style="height:20px;"></div>
+          <div class="org-box leaf">📱 Màrqueting</div>
+        </div>
+        <div class="org-branch">
+          <div class="org-connector" style="height:20px;"></div>
+          <div class="org-box leaf">👥 RRHH</div>
+        </div>
+        <div class="org-branch">
+          <div class="org-connector" style="height:20px;"></div>
+          <div class="org-box leaf">📑 Administració</div>
+        </div>
+        <div class="org-branch" style="margin-left:1.5rem;">
+          <div class="org-connector" style="height:20px;"></div>
+          <div class="org-box indep">🔬 R+D (Indep.)</div>
+        </div>
+      </div>
+      <div style="margin-top:2rem;padding:1rem 1.5rem;background:var(--green-cream);border-radius:8px;font-size:0.82rem;color:var(--green-deep);text-align:center;">
+        <strong>Millores clau:</strong> Coordinació directa Comercial↔Logística · Qualitat autònoma · R+D independent per innovació sense interferències
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 8. CLIENTS -->
+<section id="clients">
+  <div style="width:100%;height:220px;overflow:hidden;margin-bottom:0;position:relative;">
+    <img loading="lazy" src="https://images.unsplash.com/photo-1504439468489-c8920d796a29?ixlib=rb-4.0.3&w=1400&q=80&auto=format&fit=crop&crop=center&cs=tinysrgb" alt="Clients sector sanitari" style="width:100%;height:100%;object-fit:cover;display:block;">
+    <div style="position:absolute;inset:0;background:linear-gradient(to right, rgba(11,61,107,0.82) 0%, rgba(11,61,107,0.3) 100%);display:flex;align-items:center;padding:0 3rem;">
+      <div>
+        <span style="font-family:'Space Mono',monospace;font-size:0.6rem;letter-spacing:2px;text-transform:uppercase;color:#B3D9F5;">08 / Clients</span>
+        <h2 style="color:white;font-size:2rem;margin:0.3rem 0 0;">Clients i Mercat</h2>
+      </div>
+    </div>
+  </div>
+  <div class="container" style="padding-top:2.5rem;">
+    <div class="clients-grid fade-in">
+      <div class="client-card">
+        <div class="client-icon">🏥</div>
+        <div><h3>Sector Sanitari</h3><p>Hospitals i clíniques de l'àrea de Barcelona. Protocols específics per UCI, quiròfans i zones crítiques.</p></div>
+      </div>
+      <div class="client-card">
+        <div class="client-icon">🏨</div>
+        <div><h3>Hotels i Turisme</h3><p>Cadenes hoteleres de la Costa Daurada. Productes certificats per a habitacions, cuines i piscines.</p></div>
+      </div>
+      <div class="client-card">
+        <div class="client-icon">🏭</div>
+        <div><h3>Indústria Alimentària</h3><p>Empreses industrials de la Comunitat Valenciana. Compliment HACCP i normativa alimentària europea.</p></div>
+      </div>
+      <div class="client-card">
+        <div class="client-icon">🏛️</div>
+        <div><h3>Organismes Públics</h3><p>Ajuntaments, escoles i equipaments municipals. Concursos públics i contractació directa.</p></div>
+      </div>
+    </div>
+    <div class="market-banner fade-in">
+      <div>
+        <h3>🌍 Expansió a Portugal 2026</h3>
+        <p>Pla d'internacionalització actiu. Distribuïdors locals identificats. Filial prevista per a 2027.</p>
+      </div>
+      <a href="#internacionalitzacio" class="btn-primary">Veure Pla →</a>
+    </div>
+  </div>
+</section>
+
+<!-- 9. INNOVACIÓ -->
+<section id="innovacio">
+  <div class="container">
+    <span class="section-tag">09 / Innovació</span>
+    <h2>Innovació com a Motor</h2>
+    <div class="innov-cols fade-in">
+      <div>
+        <div class="innov-highlight">
+          <h3>🤝 Projecte WorkSafe Smart Space</h3>
+          <p>Col·laboració estratègica amb <strong>OfiNova</strong> per crear espais de treball intel·ligents amb higiene integrada. Sensors ambientals + dosificació automàtica + traçabilitat IoT.</p>
+        </div>
+        <div class="innov-highlight" style="margin-top:1.5rem;border-left-color:var(--accent);">
+          <h3>🔬 Laboratori Independent</h3>
+          <p>5 noves fórmules per any. Testeig en condicions reals de treball. Procés de patentació accelerat des del 2018.</p>
+        </div>
+        <div class="innov-stats">
+          <div class="innov-stat"><span class="innov-num">5</span><span class="innov-lbl">Noves fórmules/any</span></div>
+          <div class="innov-stat"><span class="innov-num">19</span><span class="innov-lbl">Patentes actives</span></div>
+          <div class="innov-stat"><span class="innov-num">×3</span><span class="innov-lbl">Eficàcia concentrats</span></div>
+          <div class="innov-stat"><span class="innov-num">2018</span><span class="innov-lbl">Lab independent</span></div>
+        </div>
+      </div>
+      <div style="display:flex;flex-direction:column;gap:1.5rem;">
+        <img loading="lazy" src="https://images.unsplash.com/photo-1532187863486-abf9dbad1b69?ixlib=rb-4.0.3&w=500&q=80&auto=format&fit=crop&crop=center&cs=tinysrgb" alt="Laboratori R+D" style="border-radius:12px;width:100%;aspect-ratio:4/3;object-fit:cover;box-shadow:var(--shadow-lg);">
+        <div style="background:var(--warm-white);border:1px solid var(--border);border-radius:10px;padding:1.5rem;">
+          <p style="font-size:0.85rem;color:#555;font-style:italic;">"La innovació no és opcional. Per als sectors crítics que servim, necessiten els millors productes possibles. El nostre laboratori ho garanteix."</p>
+          <p style="font-size:0.75rem;color:#999;margin-top:0.8rem;">— Equip Direcció, HIGIENEX S.L.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 10. MÀRQUETING -->
+<section id="marqueting">
+  <div style="width:100%;height:180px;overflow:hidden;position:relative;margin-bottom:0;">
+    <img loading="lazy" src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?ixlib=rb-4.0.3&w=1400&q=80&auto=format&fit=crop&crop=center&cs=tinysrgb" alt="Marketing digital" style="width:100%;height:100%;object-fit:cover;display:block;">
+    <div style="position:absolute;inset:0;background:linear-gradient(to right, rgba(11,61,107,0.85) 0%, rgba(33,150,211,0.4) 100%);display:flex;align-items:center;padding:0 3rem;">
+      <div>
+        <span style="font-family:'Space Mono',monospace;font-size:0.6rem;letter-spacing:2px;text-transform:uppercase;color:#B3D9F5;">10 / Màrqueting</span>
+        <h2 style="color:white;font-size:2rem;margin:0.3rem 0 0;">Estratègia de Màrqueting Digital</h2>
+      </div>
+    </div>
+  </div>
+  <div class="container" style="padding-top:2.5rem;background:var(--warm-white);">
+    <div class="mkt-grid fade-in">
+      <div class="mkt-card">
+        <h3>🌐 Web B2B SEO</h3>
+        <p>Web corporativa optimitzada per a cercadors, orientada a captació de clients professionals en sectors crítics.</p>
+      </div>
+      <div class="mkt-card">
+        <h3>💼 LinkedIn Professional</h3>
+        <p>Presència activa en LinkedIn per a networking B2B, captació de talent i visibilitat en sectors sanitari i industrial.</p>
+      </div>
+      <div class="mkt-card">
+        <h3>🎯 Google Ads Sectorial</h3>
+        <p>Campanyes de cerca pagada orientades a decisors de compra dels sectors prioritaris: hospitals, hotels i indústria.</p>
+      </div>
+      <div class="mkt-card">
+        <h3>📧 Email Màrqueting</h3>
+        <p>Newsletter professional mensual amb novetats de producte, formació i tendències del sector de la higiene.</p>
+      </div>
+      <div class="mkt-card">
+        <h3>📱 Contingut Tècnic</h3>
+        <p>Blog professional amb articles tècnics, casos d'ús i guies de normativa per als nostres clients i potencials.</p>
+      </div>
+      <div class="mkt-card">
+        <h3>🤝 Fires i Events</h3>
+        <p>Presència en fires del sector sanitari, hoteler i alimentari per a networking directe i demostració de productes.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 11. R+D -->
+<section id="rd">
+  <div class="container">
+    <span class="section-tag">11 / R+D</span>
+    <h2>Laboratori de Recerca i Desenvolupament</h2>
+    <div class="rd-grid fade-in">
+      <div>
+        <p style="color:rgba(255,255,255,0.75);margin-bottom:2rem;">El nostre laboratori independent, operatiu des del 2018, és el motor de la nostra avantatge competitiva. Formules concentrades amb eficàcia triplicada, testejades en condicions reals.</p>
+        <div class="rd-patents">
+          <div class="patent-badge"><strong>Família ECO</strong>Concentrats biodegradables pel sector sanitari</div>
+          <div class="patent-badge"><strong>Família HOSP</strong>Virucides d'ampli espectre registrats</div>
+          <div class="patent-badge"><strong>Família ALIM</strong>Desgreixants alimentaris HACCP</div>
+          <div class="patent-badge"><strong>Família SMART</strong>Sistemes QR i dosificació intel·ligent</div>
+          <div class="patent-badge"><strong>Família ECO+</strong>Noves fórmules biocides ECO 2025-2026</div>
+          <div class="patent-badge"><strong>+14 Patentes</strong>En diverses fases de concessió i protecció</div>
+        </div>
+      </div>
+      <div class="rd-visual" style="padding:0;overflow:hidden;border-radius:12px;position:relative;">
+        <img loading="lazy" src="https://images.unsplash.com/photo-1579684385127-1ef15d508118?ixlib=rb-4.0.3&w=700&q=80&auto=format&fit=crop&crop=center&cs=tinysrgb" alt="Laboratori R+D" style="width:100%;height:100%;object-fit:cover;display:block;min-height:280px;">
+        <div style="position:absolute;inset:0;background:linear-gradient(to top, rgba(11,61,107,0.92) 0%, rgba(11,61,107,0.3) 60%);display:flex;flex-direction:column;justify-content:flex-end;padding:1.5rem;">
+          <div style="font-family:'DM Serif Display',serif;font-size:3rem;color:#F2A900;line-height:1;">19</div>
+          <div style="color:rgba(255,255,255,0.85);font-size:0.82rem;margin-bottom:1rem;">Patentes registrades i en curs</div>
+          <div style="display:flex;flex-direction:column;gap:0.5rem;">
+            <div style="background:rgba(255,255,255,0.1);border-radius:6px;padding:0.6rem 0.8rem;font-size:0.78rem;color:rgba(255,255,255,0.8);">🔬 5 noves fórmules per any</div>
+            <div style="background:rgba(255,255,255,0.1);border-radius:6px;padding:0.6rem 0.8rem;font-size:0.78rem;color:rgba(255,255,255,0.8);">⚗️ Concentrats ×3 d'eficàcia</div>
+            <div style="background:rgba(255,255,255,0.1);border-radius:6px;padding:0.6rem 0.8rem;font-size:0.78rem;color:rgba(255,255,255,0.8);">🏆 Lab independent des del 2018</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 12. PROCESSOS -->
+<section id="processos">
+  <div class="container">
+    <span class="section-tag">12 / Producció</span>
+    <h2>Processos de Producció</h2>
+    <p>Cinc fases ben definides que garanteixen la qualitat, seguretat i traçabilitat de cada producte que surt de les nostres instal·lacions.</p>
+    <div class="process-flow fade-in">
+      <div class="process-step">
+        <div class="step-num">1</div>
+        <h4>R+D</h4>
+        <p>Disseny de fórmules al laboratori independent</p>
+      </div>
+      <div class="process-step">
+        <div class="step-num">2</div>
+        <h4>Formulació</h4>
+        <p>Síntesi química amb matèries primeres seleccionades</p>
+      </div>
+      <div class="process-step">
+        <div class="step-num">3</div>
+        <h4>Control Qualitat</h4>
+        <p>Tests de conformitat, eficàcia i seguretat</p>
+      </div>
+      <div class="process-step">
+        <div class="step-num">4</div>
+        <h4>Envasat</h4>
+        <p>Linia automatitzada amb etiquetatge QR</p>
+      </div>
+      <div class="process-step">
+        <div class="step-num">5</div>
+        <h4>Distribució</h4>
+        <p>Flota elèctrica i magatzem automatitzat</p>
+      </div>
+    </div>
+    <div style="margin-top:2.5rem;background:var(--green-cream);border-radius:12px;padding:2rem;display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem;" class="fade-in">
+      <div style="text-align:center;"><div style="font-size:1.8rem;margin-bottom:0.5rem;">🏭</div><strong style="color:var(--green-deep);font-size:0.9rem;">Maquinària Avançada</strong><p style="font-size:0.78rem;color:#666;margin-top:0.3rem;">Equipament de darrera generació per a sectors crítics</p></div>
+      <div style="text-align:center;"><div style="font-size:1.8rem;margin-bottom:0.5rem;">🔍</div><strong style="color:var(--green-deep);font-size:0.9rem;">Controls Estrictes</strong><p style="font-size:0.78rem;color:#666;margin-top:0.3rem;">Cada lot traçat i verificat abans de sortir al mercat</p></div>
+      <div style="text-align:center;"><div style="font-size:1.8rem;margin-bottom:0.5rem;">📋</div><strong style="color:var(--green-deep);font-size:0.9rem;">Documentació Completa</strong><p style="font-size:0.78rem;color:#666;margin-top:0.3rem;">Fitxes tècniques, SDS i certificats per a cada producte</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- 13. LOGÍSTICA -->
+<section id="logistica">
+  <div class="container">
+    <span class="section-tag">13 / Logística</span>
+    <h2>Logística i Distribució</h2>
+    <div class="log-grid fade-in">
+      <div class="log-stats">
+        <div class="log-stat-row">
+          <div class="log-icon">🏭</div>
+          <div><div class="log-stat-num">2.000 m²</div><div class="log-stat-txt">Magatzem automatitzat El Prat de Llobregat</div></div>
+        </div>
+        <div class="log-stat-row">
+          <div class="log-icon">🚛</div>
+          <div><div class="log-stat-num">100% Elèctric</div><div class="log-stat-txt">Flota de distribució de 0 emissions</div></div>
+        </div>
+        <div class="log-stat-row">
+          <div class="log-icon">📦</div>
+          <div><div class="log-stat-num">-50%</div><div class="log-stat-txt">Menys viatges gràcies als concentrats</div></div>
+        </div>
+        <div class="log-stat-row">
+          <div class="log-icon">⚡</div>
+          <div><div class="log-stat-num">48h</div><div class="log-stat-txt">Lliurament màxim a Catalunya i País Valencià</div></div>
+        </div>
+      </div>
+      <div class="log-visual" style="padding:0;overflow:hidden;border-radius:12px;position:relative;min-height:240px;">
+        <img loading="lazy" src="https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?ixlib=rb-4.0.3&w=700&q=80&auto=format&fit=crop&crop=center&cs=tinysrgb" alt="Logística i transport" style="width:100%;height:100%;object-fit:cover;display:block;min-height:240px;">
+        <div style="position:absolute;inset:0;background:linear-gradient(to top, rgba(11,61,107,0.9) 0%, rgba(11,61,107,0.2) 60%);display:flex;flex-direction:column;justify-content:flex-end;padding:1.5rem;">
+          <h3 style="color:white;margin-bottom:0.4rem;">🚚 Logística Verda</h3>
+          <p style="font-size:0.82rem;color:rgba(255,255,255,0.8);margin-bottom:0.8rem;">Coordinació directa entre els departaments Comercial i Logística garanteix comandes a temps i amb traçabilitat completa.</p>
+          <div style="background:rgba(255,255,255,0.15);border-radius:6px;padding:0.7rem;font-size:0.78rem;color:rgba(255,255,255,0.9);">✅ Integrat amb el sistema ERP corporatiu per a gestió en temps real</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 14. INTERNACIONALITZACIÓ -->
+<section id="internacionalitzacio">
+  <div class="container">
+    <span class="section-tag">14 / Internacional</span>
+    <h2>Pla d'Internacionalització</h2>
+    <div class="int-grid fade-in">
+      <div>
+        <p style="color:rgba(255,255,255,0.75);margin-bottom:2rem;">Expansió internacional per etapes, amb risc controlat i ancorament en mercats coneguts. El primer pas és Portugal, el 2026.</p>
+        <div class="int-timeline">
+          <div class="int-tl-item">
+            <span class="int-year">2025</span>
+            <div class="int-content"><strong>Preparació i Prospecció</strong>Identificació de distribuïdors locals a Portugal. Adaptació normativa UE.</div>
+          </div>
+          <div class="int-tl-item">
+            <span class="int-year">2026</span>
+            <div class="int-content"><strong>Entrada Portugal</strong>Acords amb distribuïdors locals. Primeres vendes al mercat portuguès.</div>
+          </div>
+          <div class="int-tl-item">
+            <span class="int-year">2027</span>
+            <div class="int-content"><strong>Filial Portugal</strong>Establiment de filial comercial pròpia. Estructura local de servei al client.</div>
+          </div>
+          <div class="int-tl-item">
+            <span class="int-year">2028+</span>
+            <div class="int-content"><strong>Expansió UE</strong>Mercat europeu progressiu: França, Itàlia, Bèlgica. Estratègia país per país.</div>
+          </div>
+        </div>
+      </div>
+      <div class="int-map" style="padding:0;overflow:hidden;border-radius:12px;position:relative;min-height:300px;">
+        <img loading="lazy" src="https://images.unsplash.com/photo-1519677100203-a0e668c92439?ixlib=rb-4.0.3&w=700&q=80&auto=format&fit=crop&crop=center&cs=tinysrgb" alt="Expansió internacional Europa" style="width:100%;height:100%;object-fit:cover;display:block;min-height:300px;">
+        <div style="position:absolute;inset:0;background:linear-gradient(to top, rgba(11,61,107,0.95) 0%, rgba(11,61,107,0.4) 55%);display:flex;flex-direction:column;justify-content:flex-end;padding:1.5rem;">
+          <div style="display:flex;gap:1.2rem;justify-content:center;margin-bottom:1rem;">
+            <div style="text-align:center;"><div style="font-size:2rem;">🇪🇸</div><div style="font-size:0.68rem;color:rgba(255,255,255,0.7);margin-top:0.3rem;">Espanya<br>Mercat actual</div></div>
+            <div style="text-align:center;"><div style="font-size:2rem;">🇵🇹</div><div style="font-size:0.68rem;color:rgba(255,255,255,0.7);margin-top:0.3rem;">Portugal<br>2026</div></div>
+            <div style="text-align:center;"><div style="font-size:2rem;">🇪🇺</div><div style="font-size:0.68rem;color:rgba(255,255,255,0.7);margin-top:0.3rem;">Mercat UE<br>2028+</div></div>
+          </div>
+          <div style="background:rgba(255,255,255,0.1);border-radius:6px;padding:0.8rem;font-size:0.78rem;color:rgba(255,255,255,0.8);">📋 Estratègia de risc controlat: distribuïdors locals primer, filial pròpia quan el mercat estigui consolidat.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 15. RRHH -->
+<section id="rrhh" style="padding:0 0 4rem;">
+  <div style="width:100%;height:200px;overflow:hidden;position:relative;margin-bottom:0;">
+    <img loading="lazy" src="https://images.unsplash.com/photo-1521737604893-d14cc237f11d?ixlib=rb-4.0.3&w=1400&q=80&auto=format&fit=crop&crop=center&cs=tinysrgb" alt="Equip HIGIENEX" style="width:100%;height:100%;object-fit:cover;display:block;">
+    <div style="position:absolute;inset:0;background:linear-gradient(to right, rgba(11,61,107,0.88) 0%, rgba(11,61,107,0.3) 100%);display:flex;align-items:center;padding:0 3rem;">
+      <div>
+        <span style="font-family:'Space Mono',monospace;font-size:0.6rem;letter-spacing:2px;text-transform:uppercase;color:#B3D9F5;">15 / Recursos Humans</span>
+        <h2 style="color:white;font-size:2rem;margin:0.3rem 0 0.4rem;">El Nostre Equip</h2>
+        <p style="color:rgba(255,255,255,0.75);font-size:0.88rem;margin:0;">30 professionals comprometuts amb la qualitat i la innovació.</p>
+      </div>
+    </div>
+  </div>
+  <div class="container" style="padding-top:2.5rem;">
+    <div class="rrhh-grid fade-in">
+      <div class="rrhh-card">
+        <div class="big-num">30</div>
+        <p>Treballadors en plantilla entre químics, tècnics, comercials i administració</p>
+      </div>
+      <div class="rrhh-card">
+        <div class="big-num">40h</div>
+        <p>Formació anual per treballador en seguretat, producte i normativa sectorial</p>
+      </div>
+      <div class="rrhh-card">
+        <div class="big-num">50%</div>
+        <p>Dones en llocs directius. Compromís real amb la igualtat de gènere</p>
+      </div>
+      <div class="rrhh-card">
+        <div class="big-num">7</div>
+        <p>Departaments funcionals coordinats amb cultura d'adaptabilitat i integritat</p>
+      </div>
+      <div class="rrhh-card">
+        <div class="big-num">🎓</div>
+        <p>Col·laboració amb universitats per a pràctiques i recerca aplicada</p>
+      </div>
+      <div class="rrhh-card">
+        <div class="big-num">🌱</div>
+        <p>Pla de creixement intern i promoció de talent químic i tècnic</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 16. COMPETÈNCIA -->
+<section id="competencia">
+  <div class="container">
+    <span class="section-tag">16 / Competència</span>
+    <h2>Posició Competitiva</h2>
+    <p>HIGIENEX ocupa un segment poc explotat: productes ECO concentrats d'alta eficàcia per a professionals. Ni tan gran com les multinacionals, ni tan generalista com les alternatives ecològiques.</p>
+    <div class="comp-table-wrap fade-in">
+      <table class="comp-table">
+        <thead>
+          <tr>
+            <th>Empresa</th>
+            <th>ECO Certif.</th>
+            <th>Concentrat</th>
+            <th>Professional</th>
+            <th>Local/Flex.</th>
+            <th>Preu competitiu</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr class="higienex">
+            <td><strong>✨ HIGIENEX S.L.</strong></td>
+            <td><span class="check">✔</span></td>
+            <td><span class="check">✔</span></td>
+            <td><span class="check">✔</span></td>
+            <td><span class="check">✔</span></td>
+            <td><span class="check">✔</span></td>
+          </tr>
+          <tr>
+            <td>Ecolab</td>
+            <td><span class="partial">◑</span></td>
+            <td><span class="check">✔</span></td>
+            <td><span class="check">✔</span></td>
+            <td><span class="cross">✗</span></td>
+            <td><span class="cross">✗</span></td>
+          </tr>
+          <tr>
+            <td>Diversey</td>
+            <td><span class="partial">◑</span></td>
+            <td><span class="check">✔</span></td>
+            <td><span class="check">✔</span></td>
+            <td><span class="cross">✗</span></td>
+            <td><span class="cross">✗</span></td>
+          </tr>
+          <tr>
+            <td>ECOVER</td>
+            <td><span class="check">✔</span></td>
+            <td><span class="partial">◑</span></td>
+            <td><span class="cross">✗</span></td>
+            <td><span class="cross">✗</span></td>
+            <td><span class="check">✔</span></td>
+          </tr>
+          <tr>
+            <td>Marca blanca local</td>
+            <td><span class="cross">✗</span></td>
+            <td><span class="cross">✗</span></td>
+            <td><span class="partial">◑</span></td>
+            <td><span class="check">✔</span></td>
+            <td><span class="check">✔</span></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <div style="margin-top:1.5rem;padding:1.5rem;background:var(--green-cream);border-radius:10px;font-size:0.88rem;color:var(--green-deep);">
+      <strong>🎯 Segment estratègic:</strong> El segment ECO concentrat professional està poc explotat pels grans players. HIGIENEX combina la credencial ambiental d'ECOVER amb la competència professional d'Ecolab, a preus competitius i amb flexibilitat local.
+    </div>
+  </div>
+</section>
+
+<!-- 17. RSC -->
+<section id="rsc" style="padding:0 0 4rem;">
+  <div style="width:100%;height:180px;overflow:hidden;position:relative;margin-bottom:0;">
+    <img loading="lazy" src="https://images.unsplash.com/photo-1542601906990-b4d3fb778b09?ixlib=rb-4.0.3&w=1400&q=80&auto=format&fit=crop&crop=center&cs=tinysrgb" alt="Responsabilitat social" style="width:100%;height:100%;object-fit:cover;display:block;">
+    <div style="position:absolute;inset:0;background:linear-gradient(to right, rgba(11,61,107,0.85) 0%, rgba(11,61,107,0.3) 100%);display:flex;align-items:center;padding:0 3rem;">
+      <div>
+        <span style="font-family:'Space Mono',monospace;font-size:0.6rem;letter-spacing:2px;text-transform:uppercase;color:#B3D9F5;">17 / RSC</span>
+        <h2 style="color:white;font-size:2rem;margin:0.3rem 0 0;">Responsabilitat Social Corporativa</h2>
+      </div>
+    </div>
+  </div>
+  <div class="container" style="padding-top:2.5rem;">
+    <div class="rsc-grid fade-in">
+      <div class="rsc-card">
+        <span class="rsc-icon">📚</span>
+        <h3>Formació Comunitat</h3>
+        <p>Sessions gratuïtes de formació en higiene professional per a centres educatius, entitats socials i petits negocis locals.</p>
+      </div>
+      <div class="rsc-card">
+        <span class="rsc-icon">⚖️</span>
+        <h3>Igualtat de Gènere</h3>
+        <p>50% de dones en llocs de direcció i pla d'igualtat actiu. Compromís real i mesurable any rere any.</p>
+      </div>
+      <div class="rsc-card">
+        <span class="rsc-icon">🌿</span>
+        <h3>Memòria Sostenibilitat</h3>
+        <p>Informe anual públic amb indicadors ambientals, socials i de governança verificats per auditoria externa.</p>
+      </div>
+      <div class="rsc-card">
+        <span class="rsc-icon">🏅</span>
+        <h3>ISO 14001</h3>
+        <p>Certificació internacional de gestió ambiental renovada anualment. Auditoria externa independent.</p>
+      </div>
+      <div class="rsc-card">
+        <span class="rsc-icon">🤝</span>
+        <h3>Proveïdors Locals</h3>
+        <p>Prioritat als proveïdors de matèries primeres locals i europees per reduir l'empremta de carboni i suportar l'economia local.</p>
+      </div>
+      <div class="rsc-card">
+        <span class="rsc-icon">♿</span>
+        <h3>Inclusió Laboral</h3>
+        <p>Col·laboració amb entitats d'inserció laboral per a persones en risc d'exclusió social en tasques de producció i logística.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 18. BLOG -->
+<section id="blog">
+  <div class="container">
+    <span class="section-tag">18 / Blog</span>
+    <h2>Novetats i Blog Professional</h2>
+    <div class="blog-grid fade-in">
+      <div class="blog-card">
+        <img loading="lazy" src="https://images.unsplash.com/photo-1542601906990-b4d3fb778b09?ixlib=rb-4.0.3&w=700&q=80&auto=format&fit=crop&crop=center&cs=tinysrgb" alt="ECO Concentrat" class="blog-img">
+        <div class="blog-content">
+          <span class="blog-tag">Producte Nou</span>
+          <h3 class="blog-title">ECO Concentrat 2026: Eficàcia ×4 amb -80% de plàstic</h3>
+          <p class="blog-meta">Abril 2026 · 5 min lectura</p>
+        </div>
+      </div>
+      <div class="blog-card">
+        <img loading="lazy" src="https://images.unsplash.com/photo-1497366216548-37526070297c?ixlib=rb-4.0.3&w=700&q=80&auto=format&fit=crop&crop=center&cs=tinysrgb" alt="WorkSafe" class="blog-img">
+        <div class="blog-content">
+          <span class="blog-tag">Innovació</span>
+          <h3 class="blog-title">WorkSafe Smart Space: el futur de la higiene als espais de treball</h3>
+          <p class="blog-meta">Març 2026 · 7 min lectura</p>
+        </div>
+      </div>
+      <div class="blog-card">
+        <img loading="lazy" src="https://images.unsplash.com/photo-1530099486328-e021101a494a?ixlib=rb-4.0.3&w=700&q=80&auto=format&fit=crop&crop=center&cs=tinysrgb" alt="Tendències" class="blog-img">
+        <div class="blog-content">
+          <span class="blog-tag">Tendències</span>
+          <h3 class="blog-title">Tendències en Higiene Professional 2026: ECO, digital i sectors crítics</h3>
+          <p class="blog-meta">Febrer 2026 · 8 min lectura</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 19. FUTUR -->
+<section id="futur">
+  <div class="container">
+    <span class="section-tag">19 / Futur</span>
+    <h2>El Futur de HIGIENEX</h2>
+    <p style="color:rgba(255,255,255,0.7);max-width:600px;">Una visió clara: referència peninsular d'higiene professional sostenible el 2030. Amb tecnologia, innovació i responsabilitat ambiental com a pilars.</p>
+    <div class="futur-grid fade-in">
+      <div class="futur-card">
+        <div class="futur-year">2026 →</div>
+        <h3>🇵🇹 Portugal</h3>
+        <p>Entrada al mercat portuguès amb distribuïdors locals. Primera expansió internacional.</p>
+      </div>
+      <div class="futur-card">
+        <div class="futur-year">2027 →</div>
+        <h3>🤖 IA en Producció</h3>
+        <p>Implementació d'intel·ligència artificial en la supervisió de processos de producció i control de qualitat.</p>
+      </div>
+      <div class="futur-card">
+        <div class="futur-year">2028 →</div>
+        <h3>🇪🇺 Mercat UE</h3>
+        <p>Expansió progressiva al mercat europeu. França, Itàlia i Bèlgica com a mercats objectiu.</p>
+      </div>
+      <div class="futur-card">
+        <div class="futur-year">2029 →</div>
+        <h3>♻️ Circular Total</h3>
+        <p>Economia circular completa: 100% productes ECO, 0 residus i embalatge 100% reciclat o reutilitzable.</p>
+      </div>
+      <div class="futur-card">
+        <div class="futur-year">2030 →</div>
+        <h3>🏆 Referència Peninsular</h3>
+        <p>Objectiu: ser la marca de referència en higiene professional sostenible a tota la Península Ibèrica.</p>
+      </div>
+      <div class="futur-card">
+        <div class="futur-year">Sempre →</div>
+        <h3>🔬 Innovació Contínua</h3>
+        <p>El laboratori R+D seguirà sent el motor de l'empresa. Noves patents, noves fórmules, nous mercats.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 20. CASOS -->
+<section id="casos">
+  <div class="container">
+    <span class="section-tag">20 / Casos Pràctics</span>
+    <h2>Casos d'Èxit</h2>
+    <p>Resultats reals en clients reals. La prova que els nostres productes marquen la diferència en sectors crítics.</p>
+    <div class="casos-grid fade-in">
+      <div class="caso-card">
+        <span class="caso-sector">🏥 SANITARI</span>
+        <h3>Hospital Àrea El Prat de Llobregat</h3>
+        <div class="caso-metric">-45%</div>
+        <div class="caso-metric-lbl">Reducció d'infeccions nosocomials en 12 mesos</div>
+        <p style="font-size:0.82rem;color:#666;margin-top:1rem;">Implementació del protocol HOSP-V + ECO Concentrat en UCI i quiròfans. Avaluació conjunta amb el servei de medicina preventiva.</p>
+      </div>
+      <div class="caso-card">
+        <span class="caso-sector">🏨 HOSTALERIA</span>
+        <h3>Hotel 4* Costa Daurada</h3>
+        <div class="caso-metric">-30%</div>
+        <div class="caso-metric-lbl">Reducció de costos de neteja anuals</div>
+        <p style="font-size:0.82rem;color:#666;margin-top:1rem;">Substitució de gamma convencional per Net HOSTAL ECO concentrat. Reducció de rotació de proveïdors i simplificació del magatzem.</p>
+      </div>
+      <div class="caso-card">
+        <span class="caso-sector">🏭 INDÚSTRIA</span>
+        <h3>Empresa Alimentària València</h3>
+        <div class="caso-metric">100%</div>
+        <div class="caso-metric-lbl">Compliment normatiu HACCP en auditoria</div>
+        <p style="font-size:0.82rem;color:#666;margin-top:1rem;">Implantació de la gamma ALIM-PRO amb protocol de traçabilitat QR. Primera auditoria HACCP superada sense cap no conformitat.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 21. FAQ -->
+<section id="faq">
+  <div class="container">
+    <span class="section-tag">21 / FAQ</span>
+    <h2>Preguntes Freqüents</h2>
+    <div class="faq-list fade-in">
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggleFaq(this)">
+          Són realment ecològics els vostres productes? <span class="faq-icon">+</span>
+        </div>
+        <div class="faq-a">Sí. Tots els nostres productes ECO estan certificats ISO14001 i formulats per ser biodegradables. La nostra línia ECO Concentrat permet reduir un 70% d'envasos plàstics i minimitza l'impacte ambiental en tot el cicle de vida del producte.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggleFaq(this)">
+          Com s'utilitzen els productes concentrats? <span class="faq-icon">+</span>
+        </div>
+        <div class="faq-a">Cada producte incorpora un codi QR amb instruccions d'ús, taules de dilució i protocols específics per sector. A més, formem gratuïtament el personal client en el primer lliurament i facilitem fitxes tècniques en paper i digital.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggleFaq(this)">
+          Esteu especialitzats en el sector hospitalari? <span class="faq-icon">+</span>
+        </div>
+        <div class="faq-a">Sí, tenim una gamma específica per al sector sanitari (HOSP-V) amb registres biocides oficials i protocols validats per a UCI, quiròfans i zones de risc alt. Treballem amb hospitals i clíniques i coneixem perfectament els requisits normatius del sector.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggleFaq(this)">
+          Distribuïu a Portugal? <span class="faq-icon">+</span>
+        </div>
+        <div class="faq-a">Estem en fase avançada de preparació per a l'entrada al mercat portuguès el 2026. Si sou una empresa portuguesa interessada o un distribuïdor potencial, poseu-vos en contacte amb nosaltres per parlar de possibilitats de col·laboració.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggleFaq(this)">
+          Quin és el vostre termini de lliurament? <span class="faq-icon">+</span>
+        </div>
+        <div class="faq-a">Garantim lliurament en 48h a tot Catalunya i el País Valencià. Per a comandes urgents de clients hospitalaris, disposem d'un servei prioritari de 24h. Treballem amb flota pròpia elèctrica per a les zones metropolitanes de Barcelona i València.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggleFaq(this)">
+          Feu formació als equips clients? <span class="faq-icon">+</span>
+        </div>
+        <div class="faq-a">Sí, oferim formació gratuïta a l'equip del client en la primera comanda. Per a contractes anuals, incloem formació periòdica, auditories de protocol i suport tècnic directe telefònic i presencial.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 22. CONTACTE -->
+<section id="contacte">
+  <div class="container">
+    <span class="section-tag">22 / Contacte</span>
+    <h2>Contacteu amb Nosaltres</h2>
+    <div class="contact-grid fade-in">
+      <div class="contact-info">
+        <p style="color:#666;margin-bottom:1rem;">Estem a la vostra disposició per a qualsevol consulta sobre productes, comandes o possibilitats de col·laboració.</p>
+        <div class="contact-item">
+          <div class="contact-icon">📍</div>
+          <div><h4>Adreça</h4><p>Calle de la Industria, 25<br>46010 Valencia, España</p></div>
+        </div>
+        <div class="contact-item">
+          <div class="contact-icon">📞</div>
+          <div><h4>Telèfon</h4><a href="tel:963123456">963 123 456</a><br><a href="tel:645678901" style="font-size:0.85rem;color:#666;">📱 Mòbil: 645 678 901</a></div>
+        </div>
+        <div class="contact-item">
+          <div class="contact-icon">✉️</div>
+          <div><h4>Email</h4><a href="mailto:contacto@higienexvalencia.es">contacto@higienexvalencia.es</a><br><a href="mailto:administracion@higienexvalencia.es" style="font-size:0.85rem;color:#666;">administracion@higienexvalencia.es</a></div>
+        </div>
+        <div class="contact-item">
+          <div class="contact-icon">🕒</div>
+          <div><h4>Horari</h4><p>Dilluns – Divendres: 8:00 – 17:30<br>Servei urgències hospitalàries 24/7</p></div>
+        </div>
+        <div style="background:var(--green-cream);border-radius:10px;padding:1.5rem;margin-top:0.5rem;">
+          <h4 style="color:var(--green-deep);font-size:0.85rem;margin-bottom:0.5rem;">🏆 Certificacions</h4>
+          <div style="display:flex;gap:0.8rem;flex-wrap:wrap;">
+            <span class="iso-badge" style="background:var(--green-cream);border-color:var(--green-bright);color:var(--green-deep);">ISO 14001</span>
+            <span class="iso-badge" style="background:var(--green-cream);border-color:var(--green-bright);color:var(--green-deep);">Reg. Biocida</span>
+            <span class="iso-badge" style="background:var(--green-cream);border-color:var(--green-bright);color:var(--green-deep);">HACCP</span>
+          </div>
+        </div>
+      </div>
+      <div>
+        <form class="contact-form" onsubmit="submitForm(event)">
+          <div class="form-row">
+            <div class="form-field">
+              <label>Nom i Cognoms *</label>
+              <input type="text" placeholder="El vostre nom" required>
+            </div>
+            <div class="form-field">
+              <label>Empresa</label>
+              <input type="text" placeholder="Nom de l'empresa">
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="form-field">
+              <label>Email *</label>
+              <input type="email" placeholder="correu@empresa.cat" required>
+            </div>
+            <div class="form-field">
+              <label>Telèfon</label>
+              <input type="tel" placeholder="93 000 00 00">
+            </div>
+          </div>
+          <div class="form-field">
+            <label>Sector</label>
+            <select>
+              <option value="">Seleccioneu el vostre sector</option>
+              <option>Sector Sanitari (Hospitals / Clíniques)</option>
+              <option>Hostaleria i Turisme</option>
+              <option>Indústria Alimentària</option>
+              <option>Organismes Públics</option>
+              <option>Altres</option>
+            </select>
+          </div>
+          <div class="form-field">
+            <label>Missatge *</label>
+            <textarea placeholder="Expliqueu-nos les vostres necessitats d'higiene professional..." required></textarea>
+          </div>
+          <button type="submit" class="btn-submit">Enviar Missatge →</button>
+        </form>
+        <div id="formSuccess" style="display:none;margin-top:1rem;background:var(--green-cream);border-radius:8px;padding:1rem;color:var(--green-deep);font-size:0.9rem;text-align:center;">
+          ✅ Missatge enviat! Us contactarem en menys de 24h.
+        </div>
+      </div>
+    </div>
+  </div>
+  <iframe class="map-embed" loading="lazy" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3079.5!2d-0.3769!3d39.4738!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd6048a0eefcb0a9%3A0x1a5c5f3d0b6b7f5e!2sCalle%20de%20la%20Industria%2C%2025%2C%2046010%20Valencia!5e0!3m2!1sca!2ses!4v1" allowfullscreen referrerpolicy="no-referrer-when-downgrade"></iframe>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-brand">
+      <a href="#home" class="logo">HIGIENE<span>X</span></a>
+      <p>Fabricants i distribuïdors de productes d'higiene professional ECO. Des de 2015 servint els sectors més exigents amb qualitat, sostenibilitat i innovació.</p>
+      <div style="display:flex;gap:0.5rem;margin-top:1rem;flex-wrap:wrap;">
+        <span class="iso-badge">ISO 14001</span>
+        <span class="iso-badge">19 Patentes</span>
+        <span class="iso-badge">ECO Certificat</span>
+      </div>
+    </div>
+    <div>
+      <h4>Empresa</h4>
+      <ul>
+        <li><a href="#sobre">Sobre Nosaltres</a></li>
+        <li><a href="#missio">Missió i Valors</a></li>
+        <li><a href="#organitzacio">Organigrama</a></li>
+        <li><a href="#rrhh">Equip Humà</a></li>
+        <li><a href="#rsc">RSC</a></li>
+      </ul>
+    </div>
+    <div>
+      <h4>Productes</h4>
+      <ul>
+        <li><a href="#productes">Catàleg</a></li>
+        <li><a href="#rd">R+D</a></li>
+        <li><a href="#processos">Producció</a></li>
+        <li><a href="#sostenibilitat">Sostenibilitat</a></li>
+        <li><a href="#innovacio">Innovació</a></li>
+      </ul>
+    </div>
+    <div>
+      <h4>Contacte</h4>
+      <ul>
+        <li><a href="tel:963123456">963 123 456</a></li>
+        <li><a href="tel:645678901">645 678 901 (Mòbil)</a></li>
+        <li><a href="mailto:contacto@higienexvalencia.es">contacto@higienexvalencia.es</a></li>
+        <li><a href="#contacte">Formulari de contacte</a></li>
+        <li><a href="#blog">Blog professional</a></li>
+        <li><a href="#faq">Preguntes freqüents</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <!-- Legal, contacto y protección de datos -->
+    <div class="footer-legal-row">
+      <div class="footer-legal-block">
+        <h5>📋 Términos y Condiciones</h5>
+        <p>El acceso y uso de esta web implica la aceptación de las condiciones generales de uso. HIGIENEX S.L. se reserva el derecho de modificar los contenidos sin previo aviso. Toda la información es meramente informativa. Precios y disponibilidad deben confirmarse con nuestro equipo comercial.</p>
+      </div>
+      <div class="footer-legal-block">
+        <h5>🔒 Protección de Datos</h5>
+        <p>De acuerdo con el <strong>RGPD (UE) 2016/679</strong> y la <strong>LOPD-GDD</strong>, los datos recogidos en este sitio son tratados por HIGIENEX S.L. (CIF: B12345678) con la única finalidad de gestionar consultas comerciales. Puede ejercer sus derechos de acceso, rectificación, supresión y portabilidad enviando un email a <a href="mailto:administracion@higienexvalencia.es">administracion@higienexvalencia.es</a>. No cedemos datos a terceros.</p>
+      </div>
+      <div class="footer-legal-block">
+        <h5>📞 Contacte</h5>
+        <p>
+          📍 Calle de la Industria, 25 · 46010 Valencia<br>
+          📞 <a href="tel:963123456">963 123 456</a> · <a href="tel:645678901">645 678 901</a><br>
+          ✉️ <a href="mailto:contacto@higienexvalencia.es">contacto@higienexvalencia.es</a><br>
+          ✉️ <a href="mailto:administracion@higienexvalencia.es">administracion@higienexvalencia.es</a><br>
+          🕒 Dilluns–Divendres: 8:00–17:30
+        </p>
+      </div>
+    </div>
+    <div class="footer-bottom-bar">
+      <p>© 2025 HIGIENEX S.L. · Calle de la Industria, 25 · 46010 Valencia, España · <a href="mailto:contacto@higienexvalencia.es" style="color:rgba(255,255,255,0.45);">Avís Legal</a> · <a href="mailto:administracion@higienexvalencia.es" style="color:rgba(255,255,255,0.45);">Política de Privacitat</a></p>
+      <p style="margin-top:0.3rem;color:rgba(255,255,255,0.3);font-size:0.7rem;">Dissenyat amb 🌿 per a un futur sostenible</p>
+    </div>
+  </div>
+</footer>
+
+<!-- WHATSAPP FLOTANT -->
+<a href="https://wa.me/34645678901?text=Hola%20HIGIENEX%2C%20m%27agradaria%20obtenir%20m%C3%A9s%20informaci%C3%B3%20sobre%20els%20vostres%20productes." id="whatsappBtn" target="_blank" rel="noopener" aria-label="Contactar per WhatsApp">
+  <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <circle cx="24" cy="24" r="24" fill="#25D366"/>
+    <path d="M34.5 13.5C32.1 11.1 28.9 9.75 25.5 9.75C18.45 9.75 12.75 15.45 12.75 22.5C12.75 24.75 13.35 26.85 14.4 28.65L12.75 34.5L18.75 32.85C20.55 33.75 22.5 34.35 24.6 34.35H24.75C31.8 34.35 37.35 28.65 37.35 21.6C37.35 18.15 35.85 15.15 34.5 13.5Z" fill="white"/>
+    <path d="M25.5 32.25H25.35C23.55 32.25 21.75 31.65 20.25 30.75L19.95 30.6L16.05 31.65L17.1 27.9L16.8 27.6C15.75 26.1 15.15 24.15 15.15 22.2C15.15 16.5 19.65 12 25.35 12C28.2 12 30.75 13.05 32.7 15C34.65 16.95 35.85 19.5 35.7 22.35C35.85 28.2 31.2 32.25 25.5 32.25ZM30.45 25.05C30.15 24.9 28.65 24.15 28.35 24.15C28.05 24 27.9 24 27.75 24.3C27.6 24.6 27 25.2 26.85 25.5C26.7 25.65 26.55 25.65 26.25 25.5C25.95 25.35 24.9 25.05 23.7 24C22.8 23.25 22.2 22.2 22.05 21.9C21.9 21.6 22.05 21.45 22.2 21.3L22.65 20.85C22.8 20.7 22.8 20.55 22.95 20.4C23.1 20.25 23.1 20.1 23.1 19.95C23.1 19.8 22.8 18.45 22.5 17.85C22.2 17.1 21.9 17.25 21.75 17.25H21.3C21.15 17.25 20.7 17.4 20.4 17.7C20.1 18 19.2 18.75 19.2 20.1C19.2 21.45 20.4 22.8 20.55 22.95C20.7 23.1 22.8 26.4 26.1 27.45C26.85 27.75 27.45 27.9 27.9 28.05C28.65 28.2 29.4 28.2 29.85 28.05C30.45 27.9 31.5 27.3 31.8 26.55C32.1 25.8 32.1 25.2 32.1 25.05C31.8 24.9 31.2 24.75 30.45 25.05Z" fill="#25D366"/>
+  </svg>
+</a>
+
+<style>
+/* ── WHATSAPP ── */
+#whatsappBtn {
+  position: fixed;
+  bottom: 1.5rem;
+  right: 1.5rem;
+  z-index: 9998;
+  width: 58px;
+  height: 58px;
+  border-radius: 50%;
+  box-shadow: 0 4px 20px rgba(37,211,102,0.45), 0 2px 8px rgba(0,0,0,0.2);
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+  display: block;
+  animation: waPulse 2.5s ease-in-out infinite;
+}
+#whatsappBtn:hover {
+  transform: scale(1.12);
+  box-shadow: 0 8px 30px rgba(37,211,102,0.6), 0 4px 12px rgba(0,0,0,0.25);
+  animation: none;
+}
+@keyframes waPulse {
+  0%,100% { box-shadow: 0 4px 20px rgba(37,211,102,0.45), 0 0 0 0 rgba(37,211,102,0.4); }
+  50%      { box-shadow: 0 4px 20px rgba(37,211,102,0.45), 0 0 0 10px rgba(37,211,102,0); }
+}
+
+/* ── FOOTER LEGAL ── */
+.footer-legal-row {
+  display: grid;
+  grid-template-columns: repeat(3,1fr);
+  gap: 2rem;
+  padding: 2rem 2rem 1.5rem;
+  border-top: 1px solid rgba(255,255,255,0.1);
+  max-width: 1400px;
+  margin: 0 auto;
+}
+@media(max-width:900px){ .footer-legal-row { grid-template-columns: 1fr; gap: 1.2rem; padding: 1.5rem; } }
+.footer-legal-block h5 {
+  font-family: 'Space Mono', monospace;
+  font-size: 0.62rem;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.5);
+  margin-bottom: 0.5rem;
+  font-weight: 400;
+}
+.footer-legal-block p {
+  font-size: 0.72rem;
+  color: rgba(255,255,255,0.32);
+  line-height: 1.75;
+}
+.footer-legal-block a { color: rgba(179,217,245,0.6); text-decoration: none; }
+.footer-legal-block a:hover { color: var(--green-pale); }
+.footer-legal-block strong { color: rgba(255,255,255,0.45); font-weight:600; }
+.footer-bottom-bar {
+  text-align: center;
+  padding: 1rem 2rem 1.5rem;
+  border-top: 1px solid rgba(255,255,255,0.07);
+  font-size: 0.75rem;
+  color: rgba(255,255,255,0.4);
+}
+
+/* ══════════════════════════════════════════════════════════
+   EFECTES CINEMATOGRÀFICS
+   ══════════════════════════════════════════════════════════ */
+
+/* GPU acceleration per a tots els elements animats */
+.fade-in, .hero-bg-pattern, .hero-grid-lines, section > .container,
+.sobre-img, .mvv-card, .sost-card, .mkt-card, .futur-card, .blog-card {
+  will-change: transform, opacity;
+}
+
+/* Fade-in millorat: slide up + opacity + scale lleuger */
+.fade-in {
+  opacity: 0;
+  transform: translateY(32px) scale(0.98);
+  transition: opacity 0.7s cubic-bezier(0.16,1,0.3,1),
+              transform 0.7s cubic-bezier(0.16,1,0.3,1);
+}
+.fade-in.visible {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+}
+
+/* Fade-in amb delay escalonat per a grids de cards */
+.mvv-grid .mvv-card:nth-child(1) { transition-delay: 0s; }
+.mvv-grid .mvv-card:nth-child(2) { transition-delay: 0.1s; }
+.mvv-grid .mvv-card:nth-child(3) { transition-delay: 0.2s; }
+.sost-grid .sost-card:nth-child(1) { transition-delay: 0s; }
+.sost-grid .sost-card:nth-child(2) { transition-delay: 0.07s; }
+.sost-grid .sost-card:nth-child(3) { transition-delay: 0.14s; }
+.sost-grid .sost-card:nth-child(4) { transition-delay: 0.21s; }
+.sost-grid .sost-card:nth-child(5) { transition-delay: 0.28s; }
+.sost-grid .sost-card:nth-child(6) { transition-delay: 0.35s; }
+.blog-grid .blog-card:nth-child(2) { transition-delay: 0.1s; }
+.blog-grid .blog-card:nth-child(3) { transition-delay: 0.2s; }
+
+/* Màscara de desvaniment als bordes de les seccions */
+section:not(#home):not(#missio):not(#futur):not(#rrhh) {
+  -webkit-mask-image: linear-gradient(to bottom,
+    transparent 0px,
+    black 40px,
+    black calc(100% - 40px),
+    transparent 100%
+  );
+  mask-image: linear-gradient(to bottom,
+    transparent 0px,
+    black 40px,
+    black calc(100% - 40px),
+    transparent 100%
+  );
+}
+
+/* Hero parallax layer */
+.hero-bg-pattern {
+  will-change: transform;
+  transition: transform 0.1s linear;
+}
+.hero-grid-lines {
+  will-change: transform;
+}
+
+/* Hover premium en imatges */
+.sobre-img img,
+.gallery-item img,
+.blog-img {
+  transition: transform 0.6s cubic-bezier(0.16,1,0.3,1), filter 0.4s ease;
+  will-change: transform;
+}
+.sobre-img:hover img { transform: scale(1.03); }
+.gallery-item:hover img { transform: scale(1.05); filter: brightness(1.05); }
+
+/* Hover premium en cards */
+.sost-card, .mkt-card, .futur-card, .blog-card, .client-card, .rsc-card {
+  transition: transform 0.35s cubic-bezier(0.16,1,0.3,1),
+              box-shadow 0.35s ease;
+  will-change: transform;
+}
+.sost-card:hover  { transform: translateY(-6px) scale(1.01); box-shadow: 0 20px 48px rgba(11,61,107,0.18); }
+.mkt-card:hover   { transform: translateY(-5px) scale(1.01); box-shadow: 0 16px 40px rgba(11,61,107,0.15); }
+.blog-card:hover  { transform: translateY(-6px); box-shadow: 0 20px 48px rgba(11,61,107,0.15); }
+.client-card:hover{ transform: translateY(-4px); }
+.rsc-card:hover   { transform: translateX(6px); }
+
+/* Animació d'entrada per als números de les stats (hero) */
+.stat-card {
+  transition: transform 0.4s cubic-bezier(0.16,1,0.3,1), opacity 0.4s ease;
+  will-change: transform, opacity;
+}
+
+/* Shimmer effect en els section-tag badges */
+.section-tag {
+  position: relative;
+  overflow: hidden;
+}
+.section-tag::after {
+  content: '';
+  position: absolute;
+  top: 0; left: -100%;
+  width: 60%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.5), transparent);
+  animation: shimmer 3s ease-in-out infinite;
+}
+@keyframes shimmer {
+  0%   { left: -100%; }
+  50%  { left: 150%; }
+  100% { left: 150%; }
+}
+
+/* Línia animada sota els h2 al fer hover de la secció */
+h2 {
+  position: relative;
+  display: inline-block;
+}
+h2::after {
+  content: '';
+  position: absolute;
+  bottom: -4px;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: linear-gradient(90deg, var(--green-bright), var(--green-light));
+  transition: width 0.5s cubic-bezier(0.16,1,0.3,1);
+  border-radius: 2px;
+}
+section:hover h2::after { width: 60px; }
+
+/* Smooth reveal per a timeline items */
+.tl-item {
+  opacity: 0;
+  transform: translateX(-20px);
+  transition: opacity 0.5s ease, transform 0.5s cubic-bezier(0.16,1,0.3,1);
+  will-change: transform, opacity;
+}
+.tl-item.visible {
+  opacity: 1;
+  transform: translateX(0);
+}
+.tl-item:nth-child(1) { transition-delay: 0s; }
+.tl-item:nth-child(2) { transition-delay: 0.1s; }
+.tl-item:nth-child(3) { transition-delay: 0.2s; }
+.tl-item:nth-child(4) { transition-delay: 0.3s; }
+.tl-item:nth-child(5) { transition-delay: 0.4s; }
+</style>
+
+<script>
+(function() {
+'use strict';
+
+// ── SPLASH ────────────────────────────────────────────────────
+function closeSplash(target) {
+  document.getElementById('splashMenu').style.display = 'none';
+  document.body.style.overflow = '';
+  document.getElementById('mainNav').style.display = 'block';
+  if (target && target !== '#home') {
+    requestAnimationFrame(function() {
+      requestAnimationFrame(function() {
+        var el = document.getElementById(target.replace('#','')) || document.querySelector(target);
+        if (el) {
+          var top = el.getBoundingClientRect().top + window.pageYOffset - 70;
+          try { window.scrollTo({ top: top, behavior: 'smooth' }); }
+          catch(e) { window.scrollTo(0, top); }
+        }
+      });
+    });
+  } else { window.scrollTo(0, 0); }
+}
+window.closeSplash = closeSplash;
+
+function showSplash() {
+  document.getElementById('splashMenu').style.display = 'flex';
+  document.body.style.overflow = 'hidden';
+  document.getElementById('mainNav').style.display = 'none';
+  window.scrollTo(0, 0);
+}
+window.showSplash = showSplash;
+
+document.addEventListener('DOMContentLoaded', function() {
+  document.body.style.overflow = 'hidden';
+  // Init dropdown animation styles
+  var dd = document.getElementById('navDropdown');
+  if (dd) { dd.style.opacity='0'; dd.style.transform='translateY(-8px)'; dd.style.transition='opacity 0.2s ease,transform 0.2s ease'; }
+});
+
+var enterBtn = document.querySelector('.sp-enter-btn');
+if (enterBtn) {
+  enterBtn.addEventListener('touchstart', function(e) {
+    e.preventDefault(); closeSplash('#home');
+  }, { passive: false });
+}
+
+// ── DROPDOWN MENÚ ─────────────────────────────────────────────
+var menuBtn  = document.getElementById('menuToggleBtn');
+var dropdown = document.getElementById('navDropdown');
+var menuIcon = document.getElementById('menuIcon');
+var ddOpen   = false;
+
+function openDD() {
+  ddOpen = true;
+  if (dropdown) { dropdown.style.display='block'; requestAnimationFrame(function(){ dropdown.style.opacity='1'; dropdown.style.transform='translateY(0)'; }); }
+  if (menuIcon) menuIcon.textContent = '✕';
+}
+function closeDD() {
+  ddOpen = false;
+  if (dropdown) { dropdown.style.opacity='0'; dropdown.style.transform='translateY(-8px)'; setTimeout(function(){ if(!ddOpen) dropdown.style.display='none'; },200); }
+  if (menuIcon) menuIcon.textContent = '☰';
+}
+
+if (menuBtn) menuBtn.addEventListener('click', function(e) { e.stopPropagation(); ddOpen ? closeDD() : openDD(); });
+document.addEventListener('click', function(e) { if (ddOpen && menuBtn && !menuBtn.contains(e.target) && dropdown && !dropdown.contains(e.target)) closeDD(); });
+
+document.querySelectorAll('.dditem').forEach(function(a) {
+  a.addEventListener('click', function() {
+    closeDD();
+    var href = this.getAttribute('href');
+    if (href && href.startsWith('#')) {
+      var target = href;
+      setTimeout(function() {
+        var el = document.getElementById(target.replace('#',''));
+        if (el) {
+          var top = el.getBoundingClientRect().top + window.pageYOffset - 70;
+          try { window.scrollTo({ top: top, behavior: 'smooth' }); } catch(e) { window.scrollTo(0, top); }
+        }
+      }, 220);
+    }
+  });
+});
+
+// ── NAV SCROLL ────────────────────────────────────────────────
+window.addEventListener('scroll', function() {
+  var nav = document.getElementById('mainNav');
+  if (nav) nav.classList.toggle('scrolled', window.pageYOffset > 50);
+}, { passive: true });
+
+// ── INTERSECTION OBSERVER — fade-in + timeline ────────────────
+if ('IntersectionObserver' in window) {
+  var io = new IntersectionObserver(function(entries) {
+    entries.forEach(function(e) {
+      if (e.isIntersecting) { e.target.classList.add('visible'); io.unobserve(e.target); }
+    });
+  }, { threshold: 0.08, rootMargin: '0px 0px -40px 0px' });
+  document.querySelectorAll('.fade-in, .tl-item').forEach(function(el) { io.observe(el); });
+} else {
+  document.querySelectorAll('.fade-in, .tl-item').forEach(function(el) { el.classList.add('visible'); });
+}
+
+// ── PARALLAX HERO ─────────────────────────────────────────────
+var heroBg   = document.querySelector('.hero-bg-pattern');
+var heroGrid = document.querySelector('.hero-grid-lines');
+var heroSec  = document.getElementById('home');
+var tick1    = false;
+window.addEventListener('scroll', function() {
+  if (tick1) return; tick1 = true;
+  requestAnimationFrame(function() {
+    var sy = window.pageYOffset;
+    if (heroSec && sy <= heroSec.offsetHeight * 1.5) {
+      if (heroBg)   heroBg.style.transform   = 'translateY(' + (sy * 0.35) + 'px)';
+      if (heroGrid) heroGrid.style.transform = 'translateY(' + (sy * 0.18) + 'px)';
+    }
+    tick1 = false;
+  });
+}, { passive: true });
+
+// ── PARALLAX IMATGES CAPÇALERA DE SECCIÓ ─────────────────────
+var pImgs = document.querySelectorAll('#clients > div:first-child img, #marqueting > div:first-child img, #rrhh > div:first-child img, #rsc > div:first-child img, #missio > div:first-child img');
+pImgs.forEach(function(img) { img.style.willChange='transform'; img.style.transition='transform 0.12s linear'; });
+var tick2 = false;
+window.addEventListener('scroll', function() {
+  if (tick2) return; tick2 = true;
+  requestAnimationFrame(function() {
+    var vh = window.innerHeight;
+    pImgs.forEach(function(img) {
+      var wrap = img.closest('div');
+      if (!wrap) return;
+      var r = wrap.getBoundingClientRect();
+      if (r.bottom < 0 || r.top > vh) return;
+      var progress = (vh - r.top) / (vh + r.height);
+      img.style.transform = 'translateY(' + ((progress - 0.5) * 40) + 'px) scale(1.08)';
+    });
+    tick2 = false;
+  });
+}, { passive: true });
+
+// ── FAQ ───────────────────────────────────────────────────────
+window.toggleFaq = function(el) {
+  var item = el.parentElement, isOpen = item.classList.contains('open');
+  document.querySelectorAll('.faq-item').forEach(function(i) { i.classList.remove('open'); });
+  if (!isOpen) item.classList.add('open');
+};
+
+// ── FORM ──────────────────────────────────────────────────────
+window.submitForm = function(e) {
+  e.preventDefault();
+  var s = document.getElementById('formSuccess');
+  if (s) { s.style.display='block'; setTimeout(function(){ s.style.display='none'; },5000); }
+  e.target.reset();
+};
+
+})();
+</script>
+</body>
+</html>
